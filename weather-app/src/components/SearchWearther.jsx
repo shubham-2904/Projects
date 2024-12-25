@@ -7,8 +7,9 @@ const SearchWearther = () => {
   const context = useContext(WeatherAppContext)
 
   const handleSearch = () => {
-    context.getCityLocation(city.current.value);
-    city.current.value = ''
+    //context.getCityLocation(city.current.value);
+    context.getCityWeather(city.current.value);
+    city.current.value = '';
   }
 
   return (
