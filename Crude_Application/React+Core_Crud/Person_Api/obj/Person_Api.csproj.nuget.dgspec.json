@@ -1,0 +1,571 @@
+{
+  "format": 1,
+  "restore": {
+    "F:\\Study\\Projects\\CRUD_APPLICATION\\React+Core_Crud\\Person_Api\\Person_Api.csproj": {}
+  },
+  "projects": {
+    "F:\\Study\\Projects\\CRUD_APPLICATION\\React+Core_Crud\\Contract.Services\\Contract.Services.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "F:\\Study\\Projects\\CRUD_APPLICATION\\React+Core_Crud\\Contract.Services\\Contract.Services.csproj",
+        "projectName": "Contract.Services",
+        "projectPath": "F:\\Study\\Projects\\CRUD_APPLICATION\\React+Core_Crud\\Contract.Services\\Contract.Services.csproj",
+        "packagesPath": "C:\\Users\\agraw\\.nuget\\packages\\",
+        "outputPath": "F:\\Study\\Projects\\CRUD_APPLICATION\\React+Core_Crud\\Contract.Services\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\agraw\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {
+              "F:\\Study\\Projects\\CRUD_APPLICATION\\React+Core_Crud\\Entities\\Entities.csproj": {
+                "projectPath": "F:\\Study\\Projects\\CRUD_APPLICATION\\React+Core_Crud\\Entities\\Entities.csproj"
+              },
+              "F:\\Study\\Projects\\CRUD_APPLICATION\\React+Core_Crud\\Shared\\Shared.csproj": {
+                "projectPath": "F:\\Study\\Projects\\CRUD_APPLICATION\\React+Core_Crud\\Shared\\Shared.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.400\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "F:\\Study\\Projects\\CRUD_APPLICATION\\React+Core_Crud\\Contracts\\Contracts.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "F:\\Study\\Projects\\CRUD_APPLICATION\\React+Core_Crud\\Contracts\\Contracts.csproj",
+        "projectName": "Contracts",
+        "projectPath": "F:\\Study\\Projects\\CRUD_APPLICATION\\React+Core_Crud\\Contracts\\Contracts.csproj",
+        "packagesPath": "C:\\Users\\agraw\\.nuget\\packages\\",
+        "outputPath": "F:\\Study\\Projects\\CRUD_APPLICATION\\React+Core_Crud\\Contracts\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\agraw\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {
+              "F:\\Study\\Projects\\CRUD_APPLICATION\\React+Core_Crud\\Entities\\Entities.csproj": {
+                "projectPath": "F:\\Study\\Projects\\CRUD_APPLICATION\\React+Core_Crud\\Entities\\Entities.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.400\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "F:\\Study\\Projects\\CRUD_APPLICATION\\React+Core_Crud\\Entities\\Entities.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "F:\\Study\\Projects\\CRUD_APPLICATION\\React+Core_Crud\\Entities\\Entities.csproj",
+        "projectName": "Entities",
+        "projectPath": "F:\\Study\\Projects\\CRUD_APPLICATION\\React+Core_Crud\\Entities\\Entities.csproj",
+        "packagesPath": "C:\\Users\\agraw\\.nuget\\packages\\",
+        "outputPath": "F:\\Study\\Projects\\CRUD_APPLICATION\\React+Core_Crud\\Entities\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\agraw\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "dependencies": {
+            "Microsoft.EntityFrameworkCore.SqlServer": {
+              "target": "Package",
+              "version": "[6.0.36, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.400\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "F:\\Study\\Projects\\CRUD_APPLICATION\\React+Core_Crud\\LoggerService\\LoggerService.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "F:\\Study\\Projects\\CRUD_APPLICATION\\React+Core_Crud\\LoggerService\\LoggerService.csproj",
+        "projectName": "LoggerService",
+        "projectPath": "F:\\Study\\Projects\\CRUD_APPLICATION\\React+Core_Crud\\LoggerService\\LoggerService.csproj",
+        "packagesPath": "C:\\Users\\agraw\\.nuget\\packages\\",
+        "outputPath": "F:\\Study\\Projects\\CRUD_APPLICATION\\React+Core_Crud\\LoggerService\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\agraw\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {
+              "F:\\Study\\Projects\\CRUD_APPLICATION\\React+Core_Crud\\Contracts\\Contracts.csproj": {
+                "projectPath": "F:\\Study\\Projects\\CRUD_APPLICATION\\React+Core_Crud\\Contracts\\Contracts.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "dependencies": {
+            "NLog.Extensions.Logging": {
+              "target": "Package",
+              "version": "[5.3.15, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.400\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "F:\\Study\\Projects\\CRUD_APPLICATION\\React+Core_Crud\\Person_Api\\Person_Api.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "F:\\Study\\Projects\\CRUD_APPLICATION\\React+Core_Crud\\Person_Api\\Person_Api.csproj",
+        "projectName": "Person_Api",
+        "projectPath": "F:\\Study\\Projects\\CRUD_APPLICATION\\React+Core_Crud\\Person_Api\\Person_Api.csproj",
+        "packagesPath": "C:\\Users\\agraw\\.nuget\\packages\\",
+        "outputPath": "F:\\Study\\Projects\\CRUD_APPLICATION\\React+Core_Crud\\Person_Api\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\agraw\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {
+              "F:\\Study\\Projects\\CRUD_APPLICATION\\React+Core_Crud\\LoggerService\\LoggerService.csproj": {
+                "projectPath": "F:\\Study\\Projects\\CRUD_APPLICATION\\React+Core_Crud\\LoggerService\\LoggerService.csproj"
+              },
+              "F:\\Study\\Projects\\CRUD_APPLICATION\\React+Core_Crud\\Repository\\Repository.csproj": {
+                "projectPath": "F:\\Study\\Projects\\CRUD_APPLICATION\\React+Core_Crud\\Repository\\Repository.csproj"
+              },
+              "F:\\Study\\Projects\\CRUD_APPLICATION\\React+Core_Crud\\Services\\Services.csproj": {
+                "projectPath": "F:\\Study\\Projects\\CRUD_APPLICATION\\React+Core_Crud\\Services\\Services.csproj"
+              },
+              "F:\\Study\\Projects\\CRUD_APPLICATION\\React+Core_Crud\\Shared\\Shared.csproj": {
+                "projectPath": "F:\\Study\\Projects\\CRUD_APPLICATION\\React+Core_Crud\\Shared\\Shared.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "dependencies": {
+            "Microsoft.EntityFrameworkCore.SqlServer": {
+              "target": "Package",
+              "version": "[7.0.20, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.AspNetCore.App": {
+              "privateAssets": "none"
+            },
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.400\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "F:\\Study\\Projects\\CRUD_APPLICATION\\React+Core_Crud\\Repository\\Repository.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "F:\\Study\\Projects\\CRUD_APPLICATION\\React+Core_Crud\\Repository\\Repository.csproj",
+        "projectName": "Repository",
+        "projectPath": "F:\\Study\\Projects\\CRUD_APPLICATION\\React+Core_Crud\\Repository\\Repository.csproj",
+        "packagesPath": "C:\\Users\\agraw\\.nuget\\packages\\",
+        "outputPath": "F:\\Study\\Projects\\CRUD_APPLICATION\\React+Core_Crud\\Repository\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\agraw\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {
+              "F:\\Study\\Projects\\CRUD_APPLICATION\\React+Core_Crud\\Contracts\\Contracts.csproj": {
+                "projectPath": "F:\\Study\\Projects\\CRUD_APPLICATION\\React+Core_Crud\\Contracts\\Contracts.csproj"
+              },
+              "F:\\Study\\Projects\\CRUD_APPLICATION\\React+Core_Crud\\Entities\\Entities.csproj": {
+                "projectPath": "F:\\Study\\Projects\\CRUD_APPLICATION\\React+Core_Crud\\Entities\\Entities.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "dependencies": {
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[7.0.20, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.400\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "F:\\Study\\Projects\\CRUD_APPLICATION\\React+Core_Crud\\Services\\Services.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "F:\\Study\\Projects\\CRUD_APPLICATION\\React+Core_Crud\\Services\\Services.csproj",
+        "projectName": "Services",
+        "projectPath": "F:\\Study\\Projects\\CRUD_APPLICATION\\React+Core_Crud\\Services\\Services.csproj",
+        "packagesPath": "C:\\Users\\agraw\\.nuget\\packages\\",
+        "outputPath": "F:\\Study\\Projects\\CRUD_APPLICATION\\React+Core_Crud\\Services\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\agraw\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {
+              "F:\\Study\\Projects\\CRUD_APPLICATION\\React+Core_Crud\\Contract.Services\\Contract.Services.csproj": {
+                "projectPath": "F:\\Study\\Projects\\CRUD_APPLICATION\\React+Core_Crud\\Contract.Services\\Contract.Services.csproj"
+              },
+              "F:\\Study\\Projects\\CRUD_APPLICATION\\React+Core_Crud\\Repository\\Repository.csproj": {
+                "projectPath": "F:\\Study\\Projects\\CRUD_APPLICATION\\React+Core_Crud\\Repository\\Repository.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "dependencies": {
+            "AutoMapper.Extensions.Microsoft.DependencyInjection": {
+              "target": "Package",
+              "version": "[12.0.0, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.400\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "F:\\Study\\Projects\\CRUD_APPLICATION\\React+Core_Crud\\Shared\\Shared.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "F:\\Study\\Projects\\CRUD_APPLICATION\\React+Core_Crud\\Shared\\Shared.csproj",
+        "projectName": "Shared",
+        "projectPath": "F:\\Study\\Projects\\CRUD_APPLICATION\\React+Core_Crud\\Shared\\Shared.csproj",
+        "packagesPath": "C:\\Users\\agraw\\.nuget\\packages\\",
+        "outputPath": "F:\\Study\\Projects\\CRUD_APPLICATION\\React+Core_Crud\\Shared\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\agraw\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.400\\RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}

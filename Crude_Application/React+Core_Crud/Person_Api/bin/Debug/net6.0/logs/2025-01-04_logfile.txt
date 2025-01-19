@@ -1,0 +1,1 @@
+2025-01-04 23:45:36.2479 INFO Logging information from Get method from controller
