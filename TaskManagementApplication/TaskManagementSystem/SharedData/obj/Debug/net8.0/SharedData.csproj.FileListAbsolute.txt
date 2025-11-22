@@ -1,0 +1,16 @@
+F:\Study\Projects\TaskManagementSystem\SharedData\bin\Debug\net8.0\SharedData.deps.json
+F:\Study\Projects\TaskManagementSystem\SharedData\bin\Debug\net8.0\SharedData.dll
+F:\Study\Projects\TaskManagementSystem\SharedData\bin\Debug\net8.0\SharedData.pdb
+F:\Study\Projects\TaskManagementSystem\SharedData\bin\Debug\net8.0\Entities.dll
+F:\Study\Projects\TaskManagementSystem\SharedData\bin\Debug\net8.0\Entities.pdb
+F:\Study\Projects\TaskManagementSystem\SharedData\obj\Debug\net8.0\SharedData.csproj.AssemblyReference.cache
+F:\Study\Projects\TaskManagementSystem\SharedData\obj\Debug\net8.0\SharedData.GeneratedMSBuildEditorConfig.editorconfig
+F:\Study\Projects\TaskManagementSystem\SharedData\obj\Debug\net8.0\SharedData.AssemblyInfoInputs.cache
+F:\Study\Projects\TaskManagementSystem\SharedData\obj\Debug\net8.0\SharedData.AssemblyInfo.cs
+F:\Study\Projects\TaskManagementSystem\SharedData\obj\Debug\net8.0\SharedData.csproj.CoreCompileInputs.cache
+F:\Study\Projects\TaskManagementSystem\SharedData\obj\Debug\net8.0\SharedData.sourcelink.json
+F:\Study\Projects\TaskManagementSystem\SharedData\obj\Debug\net8.0\SharedData.csproj.Up2Date
+F:\Study\Projects\TaskManagementSystem\SharedData\obj\Debug\net8.0\SharedData.dll
+F:\Study\Projects\TaskManagementSystem\SharedData\obj\Debug\net8.0\refint\SharedData.dll
+F:\Study\Projects\TaskManagementSystem\SharedData\obj\Debug\net8.0\SharedData.pdb
+F:\Study\Projects\TaskManagementSystem\SharedData\obj\Debug\net8.0\ref\SharedData.dll

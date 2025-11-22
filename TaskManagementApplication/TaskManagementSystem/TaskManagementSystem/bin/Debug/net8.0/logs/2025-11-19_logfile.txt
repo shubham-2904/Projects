@@ -1,0 +1,6 @@
+2025-11-19 22:23:51.5402 ERROR Task is not present or delete from DB task id: 1
+2025-11-19 22:23:51.6731 ERROR Execption log in method GetTaskAsync Message => The task with id: 1 doesn't exist in the database or may be deleted from the database; Inner Exception 
+2025-11-19 22:24:05.9897 ERROR Task is not present or delete from DB task id: 100
+2025-11-19 22:24:06.0218 ERROR Execption log in method GetTaskAsync Message => The task with id: 100 doesn't exist in the database or may be deleted from the database; Inner Exception 
+2025-11-19 22:24:07.7806 ERROR Task is not present or delete from DB task id: 100
+2025-11-19 22:24:07.8310 ERROR Execption log in method GetTaskAsync Message => The task with id: 100 doesn't exist in the database or may be deleted from the database; Inner Exception 

@@ -1,0 +1,13 @@
+F:\Study\Projects\TaskManagementSystem\LoggerService\bin\Debug\net8.0\LoggerService.deps.json
+F:\Study\Projects\TaskManagementSystem\LoggerService\bin\Debug\net8.0\LoggerService.dll
+F:\Study\Projects\TaskManagementSystem\LoggerService\bin\Debug\net8.0\LoggerService.pdb
+F:\Study\Projects\TaskManagementSystem\LoggerService\obj\Debug\net8.0\LoggerService.csproj.AssemblyReference.cache
+F:\Study\Projects\TaskManagementSystem\LoggerService\obj\Debug\net8.0\LoggerService.GeneratedMSBuildEditorConfig.editorconfig
+F:\Study\Projects\TaskManagementSystem\LoggerService\obj\Debug\net8.0\LoggerService.AssemblyInfoInputs.cache
+F:\Study\Projects\TaskManagementSystem\LoggerService\obj\Debug\net8.0\LoggerService.AssemblyInfo.cs
+F:\Study\Projects\TaskManagementSystem\LoggerService\obj\Debug\net8.0\LoggerService.csproj.CoreCompileInputs.cache
+F:\Study\Projects\TaskManagementSystem\LoggerService\obj\Debug\net8.0\LoggerService.sourcelink.json
+F:\Study\Projects\TaskManagementSystem\LoggerService\obj\Debug\net8.0\LoggerService.dll
+F:\Study\Projects\TaskManagementSystem\LoggerService\obj\Debug\net8.0\refint\LoggerService.dll
+F:\Study\Projects\TaskManagementSystem\LoggerService\obj\Debug\net8.0\LoggerService.pdb
+F:\Study\Projects\TaskManagementSystem\LoggerService\obj\Debug\net8.0\ref\LoggerService.dll

@@ -1,0 +1,8 @@
+@TaskManagementSystem_HostAddress = http://localhost:5276/api/taskmanager
+
+GET {{TaskManagementSystem_HostAddress}}/
+Accept: application/json
+
+###
+
+# POST {{TaskManagementSystem_HostAddress}}

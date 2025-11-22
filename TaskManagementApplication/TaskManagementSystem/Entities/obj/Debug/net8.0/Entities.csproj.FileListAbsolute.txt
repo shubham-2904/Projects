@@ -1,0 +1,12 @@
+F:\Study\Projects\TaskManagementSystem\Entities\bin\Debug\net8.0\Entities.deps.json
+F:\Study\Projects\TaskManagementSystem\Entities\bin\Debug\net8.0\Entities.dll
+F:\Study\Projects\TaskManagementSystem\Entities\bin\Debug\net8.0\Entities.pdb
+F:\Study\Projects\TaskManagementSystem\Entities\obj\Debug\net8.0\Entities.GeneratedMSBuildEditorConfig.editorconfig
+F:\Study\Projects\TaskManagementSystem\Entities\obj\Debug\net8.0\Entities.AssemblyInfoInputs.cache
+F:\Study\Projects\TaskManagementSystem\Entities\obj\Debug\net8.0\Entities.AssemblyInfo.cs
+F:\Study\Projects\TaskManagementSystem\Entities\obj\Debug\net8.0\Entities.csproj.CoreCompileInputs.cache
+F:\Study\Projects\TaskManagementSystem\Entities\obj\Debug\net8.0\Entities.sourcelink.json
+F:\Study\Projects\TaskManagementSystem\Entities\obj\Debug\net8.0\Entities.dll
+F:\Study\Projects\TaskManagementSystem\Entities\obj\Debug\net8.0\refint\Entities.dll
+F:\Study\Projects\TaskManagementSystem\Entities\obj\Debug\net8.0\Entities.pdb
+F:\Study\Projects\TaskManagementSystem\Entities\obj\Debug\net8.0\ref\Entities.dll
