@@ -3,9 +3,11 @@ import Button from "./components/Button";
 import NoteText from "./components/NoteText";
 import SearchField from "./components/SearchField";
 import Popup from "./components/Popup";
+import { Provider } from "react-redux";
+import { store } from "./store/taskStore";
 
 function App() {
-    const [openAddMenu, setOpenAddMenu] = useState<boolean>(true);
+    const [openAddMenu, setOpenAddMenu] = useState<boolean>(false);
     return (
         <div className="w-screen h-screen">
             {/* This NoteText component is fixed compenent on the page */}
@@ -21,10 +23,12 @@ function App() {
 
             {/* Popup Menu for opening the Add Menu form */}
             {openAddMenu && (
-                <Popup
-                    open={openAddMenu}
-                    onClose={() => setOpenAddMenu(false)}
-                />
+                <Provider store={store}>
+                    <Popup
+                        open={openAddMenu}
+                        onClose={() => setOpenAddMenu(false)}
+                    />
+                </Provider>
             )}
         </div>
     );

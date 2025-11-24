@@ -1,5 +1,7 @@
 import { useState } from "react";
 import AddedTask from "./AddedTask";
+import { useAppDispatch, useAppSelector } from "../store/hooks/TaskHooks";
+import { addTask, deleteTask } from "../store/features/Task/taskSlice";
 
 interface PopupProps {
     open: boolean;
@@ -8,23 +10,24 @@ interface PopupProps {
 
 const Popup = ({ open, onClose }: PopupProps) => {
     const [task, setTask] = useState<string>("");
-    const [taskList, setTaskList] = useState<string[]>([]);
+
+    const tasks = useAppSelector((state) => state.task.value);
+    const taskDispatch = useAppDispatch();
 
     if (!open) {
         return null;
     }
 
-
     const handleTaskAdd = () => {
         if (task !== "") {
-            setTaskList([...taskList, task]);
+            taskDispatch(addTask(task));
         }
         setTask("");
     };
 
     const handleTaskDelete = (index: number) => {
-        setTaskList(prevItems => prevItems.filter((_, i) => i !== index));
-    }
+        taskDispatch(deleteTask(index));
+    };
 
     return (
         <div className="fixed inset-0 flex items-center justify-center z-50">
@@ -49,7 +52,7 @@ const Popup = ({ open, onClose }: PopupProps) => {
                     placeholder="Description (Optional)"
                 />
                 {/* Task added start */}
-                <AddedTask tasks={taskList} onDelete={handleTaskDelete} />
+                <AddedTask tasks={tasks} onDelete={handleTaskDelete} />
                 {/* Task added end */}
                 <div className="mt-4 flex justify-between items-center">
                     <input
