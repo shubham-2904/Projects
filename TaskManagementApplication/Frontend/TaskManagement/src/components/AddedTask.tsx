@@ -6,7 +6,7 @@ interface AddedTaskProps {
 const AddedTask = ({ tasks, onDelete }: AddedTaskProps) => {
     return (
         <>
-            <div className="w-full mt-4 border-2 h-80 p-2 text-[#696868] overflow-y-scroll">
+            <div className={`w-full mt-4 outline-none border-2  ${tasks.length > 0 ?  "border-black" : "border-gray-400"} h-80 p-2 text-[#696868] overflow-y-scroll`}>
                 {tasks.length > 0 ? (
                     tasks.map((task, index) => (
                         <div
@@ -24,7 +24,7 @@ const AddedTask = ({ tasks, onDelete }: AddedTaskProps) => {
                                     hover:rounded-full hover:bg-white hover:brightness-100 hover:contrast-100 hover:duration-0
                                     group-hover:invert group-hover:brightness-0 group-hover:contrast-200 group-hover:duration-300 group-hover:ease-in"
                                 src="images/close.svg"
-                                alt=""
+                                alt="delete image"
                                 onClick={() => onDelete(index)}
                             />
                         </div>
