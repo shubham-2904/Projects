@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, type KeyboardEvent } from "react";
 import AddedTask from "./AddedTask";
 
 interface PopupProps {
@@ -14,7 +14,6 @@ const Popup = ({ open, onClose }: PopupProps) => {
         return null;
     }
 
-
     const handleTaskAdd = () => {
         if (task !== "") {
             setTaskList([...taskList, task]);
@@ -23,7 +22,17 @@ const Popup = ({ open, onClose }: PopupProps) => {
     };
 
     const handleTaskDelete = (index: number) => {
-        setTaskList(prevItems => prevItems.filter((_, i) => i !== index));
+        setTaskList((prevItems) => prevItems.filter((_, i) => i !== index));
+    };
+
+    const handleKeyDown = (e: KeyboardEvent<HTMLInputElement>) => {
+        if (e.key === "Enter") {
+            handleTaskAdd();
+        }
+    };
+
+    function handleCreateOrUpdateTask(): void {
+        alert("handleCreateOrUpdateTask function called")
     }
 
     return (
@@ -34,17 +43,17 @@ const Popup = ({ open, onClose }: PopupProps) => {
 
             {/* Popup box */}
             <div
-                className="relative bg-white p-6 rounded-lg shadow-xl z-50 w-[500px] h-[600px]"
+                className="relative bg-white p-6 rounded-lg shadow-xl z-50 w-[500px] h-auto"
                 onClick={(e) => e.stopPropagation()}
             >
                 <h2 className="text-xl font-semibold">New Task</h2>
                 <input
-                    className="w-full h-10 mt-4 border-2 placeholder:font-semibold px-2"
+                    className="w-full h-10 mt-4 border-2 border-gray-400 placeholder:font-semibold px-2"
                     type="text"
                     placeholder="Title"
                 />
                 <input
-                    className="w-full h-10 mt-4 border-2 placeholder:font-semibold px-2"
+                    className="w-full h-10 mt-4 border-2 border-gray-400 placeholder:font-semibold px-2"
                     type="text"
                     placeholder="Description (Optional)"
                 />
@@ -53,11 +62,12 @@ const Popup = ({ open, onClose }: PopupProps) => {
                 {/* Task added end */}
                 <div className="mt-4 flex justify-between items-center">
                     <input
-                        className="w-[89%] h-10 border-2 px-2 placeholder:font-semibold"
+                        className="w-[89%] h-10 border-2 border-gray-400 px-2 placeholder:font-semibold focus:border-black outline-none"
                         type="text"
                         placeholder="Write Task to add..."
                         onChange={(e) => setTask(e.target.value)}
                         value={task}
+                        onKeyDown={handleKeyDown}
                     />
                     {/* new task add button */}
                     <button
@@ -72,6 +82,16 @@ const Popup = ({ open, onClose }: PopupProps) => {
                         />
                     </button>
                     {/* new task add button */}
+                </div>
+                {/* Create or update form button */}
+                <div className="mt-4 flex justify-between items-center">
+                    <button
+                        type="button"
+                        className="bg-[#2E2D2F] p-2 border-2 h-10 w-full text-white cursor-pointer"
+                        onClick={handleCreateOrUpdateTask}
+                    >
+                        Create
+                    </button>
                 </div>
                 {/* Popup Close Button start */}
                 <button
