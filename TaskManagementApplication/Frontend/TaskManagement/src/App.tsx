@@ -3,8 +3,6 @@ import Button from "./components/Button";
 import NoteText from "./components/NoteText";
 import SearchField from "./components/SearchField";
 import Popup from "./components/Popup";
-import { Provider } from "react-redux";
-import { store } from "./store/taskStore";
 import Notes from "./components/Notes";
 
 function App() {
@@ -24,12 +22,10 @@ function App() {
 
             {/* Popup Menu for opening the Add Menu form */}
             {openAddMenu && (
-                <Provider store={store}>
-                    <Popup
-                        open={openAddMenu}
-                        onClose={() => setOpenAddMenu(false)}
-                    />
-                </Provider>
+                <Popup
+                    open={openAddMenu}
+                    onClose={() => setOpenAddMenu(false)}
+                />
             )}
             {/* Notes */}
             <Notes />
