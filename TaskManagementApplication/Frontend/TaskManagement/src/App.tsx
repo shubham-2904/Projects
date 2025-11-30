@@ -5,11 +5,12 @@ import SearchField from "./components/SearchField";
 import Popup from "./components/Popup";
 import { Provider } from "react-redux";
 import { store } from "./store/taskStore";
+import Notes from "./components/Notes";
 
 function App() {
     const [openAddMenu, setOpenAddMenu] = useState<boolean>(false);
     return (
-        <div className="w-screen h-screen">
+        <div className="w-full h-screen overflow-y-scroll [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden">
             {/* This NoteText component is fixed compenent on the page */}
             <NoteText />
             <SearchField />
@@ -30,6 +31,8 @@ function App() {
                     />
                 </Provider>
             )}
+            {/* Notes */}
+            <Notes />
         </div>
     );
 }
