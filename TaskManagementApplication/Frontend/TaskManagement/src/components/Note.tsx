@@ -1,4 +1,4 @@
-import type { TaskDto } from "../models/taskModel";
+import type { TaskDto } from "../models/TaskModel";
 import type { colorTheme } from "../utilities/colorTheme";
 
 interface noteProps {

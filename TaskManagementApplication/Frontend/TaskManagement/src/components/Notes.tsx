@@ -1,8 +1,6 @@
 import Note from "./Note";
 import type { colorTheme } from "../utilities/colorTheme";
-import { useEffect, useState } from "react";
-import type { TaskDto } from "../models/taskModel";
-import type { Response } from "../models/Response";
+import { useGetAllTaskQuery } from "../store/features/Task/taskApiSlice";
 
 const noteColorPalette: colorTheme[] = [
     // Purple
@@ -48,32 +46,23 @@ const noteColorPalette: colorTheme[] = [
 ];
 
 const Notes: React.FC = () => {
-    const BASE_URL: string = "http://localhost:5276/api/taskmanager";
-    const [taskDtoList, setTaskDtoList] = useState<TaskDto[] | null>(null);
-
-    // Get all data when component is loaded
-    useEffect(() => {
-        const fetchTask = async () => {
-            try {
-                const res = await fetch(`${BASE_URL}/get-all-tasks`);
-                if (!res.ok) {
-                    throw new Error("Failed to fetch tasks");
-                }
-
-                const response: Response<TaskDto[]> = await res.json();
-                if (response.sucess && response.data != null) {
-                    var taskDtosResponse: TaskDto[] = response.data;
-                    setTaskDtoList(taskDtosResponse);
-                }
-            } catch (err: any) {
-                console.log(err);
-            } finally {
-                console.log("inside finally");
+    const { data: taskDtoList, error, isLoading } = useGetAllTaskQuery(undefined, {
+        selectFromResult: ({data, error, isLoading}) => {
+            return {
+                data: data?.data ?? null,
+                error,
+                isLoading
             }
-        };
+        }
+    });
 
-        fetchTask();
-    }, []);
+    if (isLoading) {
+        return <h1>Loading.....</h1>;
+    }
+
+    if (error != undefined) {
+        console.log(error);
+    }
 
     return (
         <div className="mx-3 my-5 px-4 grid grid-cols-4 gap-2">
@@ -81,7 +70,13 @@ const Notes: React.FC = () => {
                 taskDtoList.length > 0 &&
                 taskDtoList?.map((task, index) => {
                     let chooseColorIndex = index % noteColorPalette.length;
-                    return <Note key={task.id} task = {task} noteTheme={noteColorPalette[chooseColorIndex]} />
+                    return (
+                        <Note
+                            key={task.id}
+                            task={task}
+                            noteTheme={noteColorPalette[chooseColorIndex]}
+                        />
+                    );
                 })}
         </div>
     );
