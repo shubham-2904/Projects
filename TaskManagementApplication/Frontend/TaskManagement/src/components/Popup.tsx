@@ -1,5 +1,7 @@
 import { useState, type KeyboardEvent } from "react";
 import AddedTask from "./AddedTask";
+import { useCreateTaskMutation } from "../store/features/Task/taskApiSlice";
+import type { TaskDetailDto, TaskDto } from "../models/TaskModel";
 
 interface PopupProps {
     open: boolean;
@@ -7,8 +9,12 @@ interface PopupProps {
 }
 
 const Popup = ({ open, onClose }: PopupProps) => {
+    const [taskTitle, setTaskTitle] = useState<string>("");
+    const [taskDescription, setTaskDescription] = useState<string>("");
     const [task, setTask] = useState<string>("");
     const [taskList, setTaskList] = useState<string[]>([]);
+
+    const [createTask, { isError, error }] = useCreateTaskMutation();
 
     if (!open) {
         return null;
@@ -32,7 +38,40 @@ const Popup = ({ open, onClose }: PopupProps) => {
     };
 
     function handleCreateOrUpdateTask(): void {
-        alert("handleCreateOrUpdateTask function called")
+        let newTaskDetails: TaskDetailDto[] = [];
+
+        if (taskList && taskList.length > 0) {
+            newTaskDetails = taskList.map((taskDetial) => ({
+                id: 0,
+                taskId: 0,
+                detail: taskDetial,
+                isCompleted: false,
+            }));
+        }
+
+        const newTask: TaskDto = {
+            id: 0,
+            createDate: new Date(),
+            category: 1,
+            title: taskTitle,
+            description: taskDescription === "" ? null : taskDescription,
+            details: newTaskDetails,
+        };
+        
+        reset();
+        
+        createTask(newTask);
+    }
+
+    function reset() {
+        setTaskTitle("");
+        setTaskDescription("");
+        setTask("");
+        setTaskList([]);
+    }
+
+    if (isError && error != undefined) {
+        console.log(error);
     }
 
     return (
@@ -51,11 +90,15 @@ const Popup = ({ open, onClose }: PopupProps) => {
                     className="w-full h-10 mt-4 border-2 border-gray-400 placeholder:font-semibold px-2"
                     type="text"
                     placeholder="Title"
+                    value={taskTitle}
+                    onChange={(e) => setTaskTitle(e.target.value)}
                 />
                 <input
                     className="w-full h-10 mt-4 border-2 border-gray-400 placeholder:font-semibold px-2"
                     type="text"
                     placeholder="Description (Optional)"
+                    value={taskDescription}
+                    onChange={(e) => setTaskDescription(e.target.value)}
                 />
                 {/* Task added start */}
                 <AddedTask tasks={taskList} onDelete={handleTaskDelete} />

@@ -1,6 +1,10 @@
 import Note from "./Note";
 import type { colorTheme } from "../utilities/colorTheme";
-import { useGetAllTaskQuery } from "../store/features/Task/taskApiSlice";
+import {
+    useCreateTaskMutation,
+    useGetAllTaskQuery,
+} from "../store/features/Task/taskApiSlice";
+import Loader from "./Loader";
 
 const noteColorPalette: colorTheme[] = [
     // Purple
@@ -46,22 +50,28 @@ const noteColorPalette: colorTheme[] = [
 ];
 
 const Notes: React.FC = () => {
-    const { data: taskDtoList, error, isLoading } = useGetAllTaskQuery(undefined, {
-        selectFromResult: ({data, error, isLoading}) => {
+    const {
+        data: taskDtoList,
+        error,
+        isLoading: isFetchingTasks,
+    } = useGetAllTaskQuery(undefined, {
+        selectFromResult: ({ data, error, isLoading }) => {
             return {
                 data: data?.data ?? null,
                 error,
-                isLoading
-            }
-        }
+                isLoading,
+            };
+        },
     });
 
-    if (isLoading) {
-        return <h1>Loading.....</h1>;
-    }
+    const [, { isLoading: isCreatingTask }] = useCreateTaskMutation();
 
     if (error != undefined) {
         console.log(error);
+    }
+
+    if (isFetchingTasks || isCreatingTask) {
+        return <Loader />;
     }
 
     return (

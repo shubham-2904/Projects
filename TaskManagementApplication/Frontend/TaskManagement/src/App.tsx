@@ -7,12 +7,13 @@ import Notes from "./components/Notes";
 
 function App() {
     const [openAddMenu, setOpenAddMenu] = useState<boolean>(false);
+
     return (
         <div className="w-full h-screen overflow-y-scroll [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden">
             {/* This NoteText component is fixed compenent on the page */}
             <NoteText />
             <SearchField />
-            <div className="absolute right-12 bottom-12">
+            <div className="absolute right-12 bottom-12 z-50">
                 <Button
                     text="add"
                     path={"images/add-item.svg"}
