@@ -1,5 +1,8 @@
+import { useState } from "react";
 import type { TaskDto } from "../models/TaskModel";
 import type { colorTheme } from "../utilities/colorTheme";
+import { useDeleteTaskMutation } from "../store/features/Task/taskApiSlice";
+import Loader from "./Loader";
 
 interface noteProps {
     task: TaskDto;
@@ -7,9 +10,11 @@ interface noteProps {
 }
 
 const Note: React.FC<noteProps> = ({ task, noteTheme }) => {
+    const [noteMenuShow, setNoteMenuShow] = useState(false);
+
     return (
         <div
-            className={`relative ml-5 px-3 w-[20rem] h-[22em] ${noteTheme?.bgSecondary}`}
+            className={`relative ml-5 px-3 w-[20rem] h-[22em] ${noteTheme?.bgSecondary} hover:scale-102 duration-300 ease-in-out`}
         >
             {/* Date and category */}
             <div className="mt-2 flex items-center justify-between text-[12px]">
@@ -49,7 +54,7 @@ const Note: React.FC<noteProps> = ({ task, noteTheme }) => {
                                 >
                                     <p>
                                         {taskDetail.isCompleted ? (
-                                            <s>List of task</s>
+                                            <s>taskDetail.detail</s>
                                         ) : (
                                             taskDetail.detail
                                         )}
@@ -81,12 +86,56 @@ const Note: React.FC<noteProps> = ({ task, noteTheme }) => {
             </div>
             {/* Edit Task Note Menu */}
             <div
-                className={`absolute w-3 h-3 border-2 ${noteTheme.borderColor} rounded-full ${noteTheme.bgSecondary} -top-2 -right-4`}
+                className={`absolute w-3 h-3 border-2 ${noteTheme.borderColor} rounded-full ${noteTheme.bgSecondary} -top-2 -right-4 cursor-pointer`}
+                onClick={() => setNoteMenuShow(!noteMenuShow)}
             >
                 <img src="images/menu-dots.svg" alt="" />
+                {noteMenuShow == true ? <NoteMenu taskId={task.id} /> : null}
             </div>
         </div>
     );
 };
+
+interface NoteMenuProps {
+    taskId: number;
+}
+
+function NoteMenu({ taskId }: NoteMenuProps) {
+    const [deleteTask, { isLoading, isError, error }] = useDeleteTaskMutation();
+
+    function handleTaskDelete(id: number) {
+        deleteTask(id);
+    }
+
+    if (isLoading) {
+        console.log(isLoading);
+        return <Loader />;
+    }
+
+    if (isError) {
+        if (error != undefined) {
+            console.log(error);
+        }
+    }
+
+    return (
+        <div className={`absolute w-16 h-12 top-3 transition-all`}>
+            <ul>
+                <li
+                    className={`px-1 duration-300 ease-in-out hover:text-white hover:bg-black`}
+                    onClick={() => alert("Task Edit Button click")}
+                >
+                    Edit
+                </li>
+                <li
+                    className={`px-1 duration-300 ease-in-out hover:text-white hover:bg-black`}
+                    onClick={() => handleTaskDelete(taskId)}
+                >
+                    Delete
+                </li>
+            </ul>
+        </div>
+    );
+}
 
 export default Note;

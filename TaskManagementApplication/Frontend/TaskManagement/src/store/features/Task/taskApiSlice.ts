@@ -12,7 +12,7 @@ export const taskApiSlice = createApi({
         return {
             getAllTask: builder.query<Response<TaskDto[]>, void>({
                 query: () => "/taskmanager/get-all-tasks",
-                providesTags: ["Task"]
+                providesTags: ["Task"],
             }),
             createTask: builder.mutation<Response<TaskDto>, TaskDto>({
                 query: (body) => ({
@@ -20,10 +20,24 @@ export const taskApiSlice = createApi({
                     method: "POST",
                     body,
                 }),
-                invalidatesTags: ["Task"]
+                invalidatesTags: ["Task"],
+            }),
+            deleteTask: builder.mutation<Response<number>, number>({
+                query: (taskIdToDelete) => {
+                    console.log("from delete => ", taskIdToDelete);
+                    return {
+                        url: `/taskmanager/delete-task/${taskIdToDelete}`,
+                        method: "DELETE",
+                    };
+                },
+                invalidatesTags: ["Task"],
             }),
         };
     },
 });
 
-export const { useGetAllTaskQuery, useCreateTaskMutation } = taskApiSlice;
+export const {
+    useGetAllTaskQuery,
+    useCreateTaskMutation,
+    useDeleteTaskMutation,
+} = taskApiSlice;
