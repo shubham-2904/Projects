@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "LJx5QiqNEss=",
+  "dgSpecHash": "Ejy4LsD+xps=",
   "success": true,
-  "projectFilePath": "F:\\Study\\Projects\\TaskManagementSystem\\ServiceContracts\\ServiceContracts.csproj",
+  "projectFilePath": "F:\\Study\\Projects\\TaskManagementApplication\\TaskManagementSystem\\ServiceContracts\\ServiceContracts.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\agraw\\.nuget\\packages\\microsoft.entityframeworkcore\\9.0.10\\microsoft.entityframeworkcore.9.0.10.nupkg.sha512",
     "C:\\Users\\agraw\\.nuget\\packages\\microsoft.entityframeworkcore.abstractions\\9.0.10\\microsoft.entityframeworkcore.abstractions.9.0.10.nupkg.sha512",

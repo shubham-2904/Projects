@@ -18,7 +18,6 @@
       "Microsoft.EntityFrameworkCore/9.0.10": {
         "dependencies": {
           "Microsoft.EntityFrameworkCore.Abstractions": "9.0.10",
-          "Microsoft.EntityFrameworkCore.Analyzers": "9.0.10",
           "Microsoft.Extensions.Caching.Memory": "9.0.10",
           "Microsoft.Extensions.Logging": "9.0.10"
         },
@@ -37,7 +36,6 @@
           }
         }
       },
-      "Microsoft.EntityFrameworkCore.Analyzers/9.0.10": {},
       "Microsoft.Extensions.Caching.Abstractions/9.0.10": {
         "dependencies": {
           "Microsoft.Extensions.Primitives": "9.0.10"
@@ -171,7 +169,7 @@
       "Entities/1.0.0": {
         "runtime": {
           "Entities.dll": {
-            "assemblyVersion": "1.0.0",
+            "assemblyVersion": "1.0.0.0",
             "fileVersion": "1.0.0.0"
           }
         }
@@ -182,7 +180,7 @@
         },
         "runtime": {
           "LoggerService.dll": {
-            "assemblyVersion": "1.0.0",
+            "assemblyVersion": "1.0.0.0",
             "fileVersion": "1.0.0.0"
           }
         }
@@ -194,7 +192,7 @@
         },
         "runtime": {
           "Repository.dll": {
-            "assemblyVersion": "1.0.0",
+            "assemblyVersion": "1.0.0.0",
             "fileVersion": "1.0.0.0"
           }
         }
@@ -205,7 +203,7 @@
         },
         "runtime": {
           "RepositoryManager.dll": {
-            "assemblyVersion": "1.0.0",
+            "assemblyVersion": "1.0.0.0",
             "fileVersion": "1.0.0.0"
           }
         }
@@ -217,7 +215,7 @@
         },
         "runtime": {
           "ServiceContracts.dll": {
-            "assemblyVersion": "1.0.0",
+            "assemblyVersion": "1.0.0.0",
             "fileVersion": "1.0.0.0"
           }
         }
@@ -228,7 +226,7 @@
         },
         "runtime": {
           "SharedData.dll": {
-            "assemblyVersion": "1.0.0",
+            "assemblyVersion": "1.0.0.0",
             "fileVersion": "1.0.0.0"
           }
         }
@@ -254,13 +252,6 @@
       "sha512": "sha512-I3TWAs5Lbzmzu8S0T6qXhzBiO3CznYLrfE59W0npkqNHfWGH8CgA66LrHMWxWOXVTD4145QwYqiWNCdLwpJ1Ew==",
       "path": "microsoft.entityframeworkcore.abstractions/9.0.10",
       "hashPath": "microsoft.entityframeworkcore.abstractions.9.0.10.nupkg.sha512"
-    },
-    "Microsoft.EntityFrameworkCore.Analyzers/9.0.10": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-mXNl0Gg3l3zGrClLCHepB+b7rYVuFfB9qQJwya0dUSHFuR1T0jMD8KxuNVyhQSfoWIepanhzjcG8TUNGXOcU0Q==",
-      "path": "microsoft.entityframeworkcore.analyzers/9.0.10",
-      "hashPath": "microsoft.entityframeworkcore.analyzers.9.0.10.nupkg.sha512"
     },
     "Microsoft.Extensions.Caching.Abstractions/9.0.10": {
       "type": "package",

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "CYXdvECfsHg=",
+  "dgSpecHash": "cv+BjUnluok=",
   "success": true,
-  "projectFilePath": "F:\\Study\\Projects\\TaskManagementSystem\\LoggerService\\LoggerService.csproj",
+  "projectFilePath": "F:\\Study\\Projects\\TaskManagementApplication\\TaskManagementSystem\\LoggerService\\LoggerService.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\agraw\\.nuget\\packages\\microsoft.extensions.configuration.abstractions\\8.0.0\\microsoft.extensions.configuration.abstractions.8.0.0.nupkg.sha512",
     "C:\\Users\\agraw\\.nuget\\packages\\microsoft.extensions.dependencyinjection\\8.0.0\\microsoft.extensions.dependencyinjection.8.0.0.nupkg.sha512",

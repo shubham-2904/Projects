@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "3hXa4Zm0qCM=",
+  "dgSpecHash": "TeeD8w1FtFE=",
   "success": true,
-  "projectFilePath": "F:\\Study\\Projects\\TaskManagementSystem\\RepositoryManager\\RepositoryManager.csproj",
+  "projectFilePath": "F:\\Study\\Projects\\TaskManagementApplication\\TaskManagementSystem\\RepositoryManager\\RepositoryManager.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\agraw\\.nuget\\packages\\microsoft.entityframeworkcore\\9.0.10\\microsoft.entityframeworkcore.9.0.10.nupkg.sha512",
     "C:\\Users\\agraw\\.nuget\\packages\\microsoft.entityframeworkcore.abstractions\\9.0.10\\microsoft.entityframeworkcore.abstractions.9.0.10.nupkg.sha512",

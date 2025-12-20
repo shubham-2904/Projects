@@ -1,20 +1,24 @@
 {
   "format": 1,
   "restore": {
-    "F:\\Study\\Projects\\TaskManagementSystem\\RepositoryManager\\RepositoryManager.csproj": {}
+    "F:\\Study\\Projects\\TaskManagementApplication\\TaskManagementSystem\\RepositoryManager\\RepositoryManager.csproj": {}
   },
   "projects": {
-    "F:\\Study\\Projects\\TaskManagementSystem\\Entities\\Entities.csproj": {
+    "F:\\Study\\Projects\\TaskManagementApplication\\TaskManagementSystem\\Entities\\Entities.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "F:\\Study\\Projects\\TaskManagementSystem\\Entities\\Entities.csproj",
+        "projectUniqueName": "F:\\Study\\Projects\\TaskManagementApplication\\TaskManagementSystem\\Entities\\Entities.csproj",
         "projectName": "Entities",
-        "projectPath": "F:\\Study\\Projects\\TaskManagementSystem\\Entities\\Entities.csproj",
+        "projectPath": "F:\\Study\\Projects\\TaskManagementApplication\\TaskManagementSystem\\Entities\\Entities.csproj",
         "packagesPath": "C:\\Users\\agraw\\.nuget\\packages\\",
-        "outputPath": "F:\\Study\\Projects\\TaskManagementSystem\\Entities\\obj\\",
+        "outputPath": "F:\\Study\\Projects\\TaskManagementApplication\\TaskManagementSystem\\Entities\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
           "C:\\Users\\agraw\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -22,7 +26,6 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -40,7 +43,8 @@
           "enableAudit": "true",
           "auditLevel": "low",
           "auditMode": "direct"
-        }
+        },
+        "SdkAnalysisLevel": "10.0.100"
       },
       "frameworks": {
         "net8.0": {
@@ -61,21 +65,25 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.400/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.101/PortableRuntimeIdentifierGraph.json"
         }
       }
     },
-    "F:\\Study\\Projects\\TaskManagementSystem\\RepositoryManager\\RepositoryManager.csproj": {
+    "F:\\Study\\Projects\\TaskManagementApplication\\TaskManagementSystem\\RepositoryManager\\RepositoryManager.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "F:\\Study\\Projects\\TaskManagementSystem\\RepositoryManager\\RepositoryManager.csproj",
+        "projectUniqueName": "F:\\Study\\Projects\\TaskManagementApplication\\TaskManagementSystem\\RepositoryManager\\RepositoryManager.csproj",
         "projectName": "RepositoryManager",
-        "projectPath": "F:\\Study\\Projects\\TaskManagementSystem\\RepositoryManager\\RepositoryManager.csproj",
+        "projectPath": "F:\\Study\\Projects\\TaskManagementApplication\\TaskManagementSystem\\RepositoryManager\\RepositoryManager.csproj",
         "packagesPath": "C:\\Users\\agraw\\.nuget\\packages\\",
-        "outputPath": "F:\\Study\\Projects\\TaskManagementSystem\\RepositoryManager\\obj\\",
+        "outputPath": "F:\\Study\\Projects\\TaskManagementApplication\\TaskManagementSystem\\RepositoryManager\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
           "C:\\Users\\agraw\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -83,15 +91,14 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "F:\\Study\\Projects\\TaskManagementSystem\\Repository\\Repository.csproj": {
-                "projectPath": "F:\\Study\\Projects\\TaskManagementSystem\\Repository\\Repository.csproj"
+              "F:\\Study\\Projects\\TaskManagementApplication\\TaskManagementSystem\\Repository\\Repository.csproj": {
+                "projectPath": "F:\\Study\\Projects\\TaskManagementApplication\\TaskManagementSystem\\Repository\\Repository.csproj"
               }
             }
           }
@@ -105,7 +112,8 @@
           "enableAudit": "true",
           "auditLevel": "low",
           "auditMode": "direct"
-        }
+        },
+        "SdkAnalysisLevel": "10.0.100"
       },
       "frameworks": {
         "net8.0": {
@@ -126,21 +134,25 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.400/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.101/PortableRuntimeIdentifierGraph.json"
         }
       }
     },
-    "F:\\Study\\Projects\\TaskManagementSystem\\Repository\\Repository.csproj": {
+    "F:\\Study\\Projects\\TaskManagementApplication\\TaskManagementSystem\\Repository\\Repository.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "F:\\Study\\Projects\\TaskManagementSystem\\Repository\\Repository.csproj",
+        "projectUniqueName": "F:\\Study\\Projects\\TaskManagementApplication\\TaskManagementSystem\\Repository\\Repository.csproj",
         "projectName": "Repository",
-        "projectPath": "F:\\Study\\Projects\\TaskManagementSystem\\Repository\\Repository.csproj",
+        "projectPath": "F:\\Study\\Projects\\TaskManagementApplication\\TaskManagementSystem\\Repository\\Repository.csproj",
         "packagesPath": "C:\\Users\\agraw\\.nuget\\packages\\",
-        "outputPath": "F:\\Study\\Projects\\TaskManagementSystem\\Repository\\obj\\",
+        "outputPath": "F:\\Study\\Projects\\TaskManagementApplication\\TaskManagementSystem\\Repository\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
           "C:\\Users\\agraw\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -148,15 +160,14 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "F:\\Study\\Projects\\TaskManagementSystem\\Entities\\Entities.csproj": {
-                "projectPath": "F:\\Study\\Projects\\TaskManagementSystem\\Entities\\Entities.csproj"
+              "F:\\Study\\Projects\\TaskManagementApplication\\TaskManagementSystem\\Entities\\Entities.csproj": {
+                "projectPath": "F:\\Study\\Projects\\TaskManagementApplication\\TaskManagementSystem\\Entities\\Entities.csproj"
               }
             }
           }
@@ -170,7 +181,8 @@
           "enableAudit": "true",
           "auditLevel": "low",
           "auditMode": "direct"
-        }
+        },
+        "SdkAnalysisLevel": "10.0.100"
       },
       "frameworks": {
         "net8.0": {
@@ -197,7 +209,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.400/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.101/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

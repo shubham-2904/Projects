@@ -1,11 +1,1 @@
-{
-  "Version": 1,
-  "Hash": "vb8Htn+U8sAnHA/ffKRKDjxoZuG1aebkk4iebzSPt9Q=",
-  "Source": "TaskManagementSystem",
-  "BasePath": "_content/TaskManagementSystem",
-  "Mode": "Default",
-  "ManifestType": "Build",
-  "ReferencedProjectsConfiguration": [],
-  "DiscoveryPatterns": [],
-  "Assets": []
-}
+{"Version":1,"Hash":"CA3jgXIrqFUZs/O/pBFbfvHeNlQYFrVFFPmPM9geVoU=","Source":"TaskManagementSystem","BasePath":"/","Mode":"Root","ManifestType":"Build","ReferencedProjectsConfiguration":[],"DiscoveryPatterns":[],"Assets":[],"Endpoints":[]}

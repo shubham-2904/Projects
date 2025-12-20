@@ -146,6 +146,34 @@ namespace Service
                 taskEntity.Title = task.Title;
                 taskEntity.Description = task.Description;
 
+                // Delete Task if not present in update request
+                if (task.Details != null)
+                {
+                    var updatedIds = task.Details?
+                        .Select(x => x.Id)
+                        .ToHashSet()
+                        ?? new HashSet<long>();
+
+                    var taskDetail = await _repositoryManager.TaskDetail.GetAllTasksByTaskIdAsync(taskEntity.Id, true);
+
+                    var taskDetailToDelete = taskDetail?
+                        .Where(e => !updatedIds.Contains(e.Id))
+                        .Select(e => e)
+                        .ToList();
+
+                    if (taskDetailToDelete != null && taskDetailToDelete.Count > 0)
+                    {
+                        Parallel.ForEach(taskDetailToDelete, td =>
+                        {
+                            td.IsDeleted = true;
+                            td.LastModifyDate = DateTime.Now;
+                            _repositoryManager.TaskDetail.UpdateTaskDetail(td);
+                        });
+                    }
+                }
+
+                taskEntity.Details = task.Details?.ToEntities().ToList();
+
                 _repositoryManager.Task.UpdateTask(taskEntity);
                 await _repositoryManager.CommitAsync();
 
