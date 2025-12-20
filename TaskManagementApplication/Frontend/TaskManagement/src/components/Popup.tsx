@@ -1,20 +1,77 @@
-import { useState, type KeyboardEvent } from "react";
+import {
+    useEffect,
+    useState,
+    type KeyboardEvent,
+    type SetStateAction,
+} from "react";
 import AddedTask from "./AddedTask";
-import { useCreateTaskMutation } from "../store/features/Task/taskApiSlice";
-import type { TaskDetailDto, TaskDto } from "../models/TaskModel";
+import {
+    useCreateTaskMutation,
+    useUpdateTaskMutation,
+} from "../store/features/Task/taskApiSlice";
+import type {
+    TaskDetailDataList,
+    TaskDetailDto,
+    TaskDto,
+} from "../models/TaskModel";
+import { useAppDispatch } from "../store/hooks/taskHooks";
+import { clearTask } from "../store/features/Task/taskSlice";
 
 interface PopupProps {
     open: boolean;
-    onClose: () => void;
+    isEdit: boolean;
+    taskData: TaskDto | null;
+    onClose: React.Dispatch<SetStateAction<boolean>>;
 }
 
-const Popup = ({ open, onClose }: PopupProps) => {
+const Popup = ({ open, isEdit, taskData, onClose }: PopupProps) => {
     const [taskTitle, setTaskTitle] = useState<string>("");
     const [taskDescription, setTaskDescription] = useState<string>("");
     const [task, setTask] = useState<string>("");
-    const [taskList, setTaskList] = useState<string[]>([]);
+    const [taskList, setTaskList] = useState<TaskDetailDataList[]>([]);
 
     const [createTask, { isError, error }] = useCreateTaskMutation();
+    const [
+        updateTask,
+        { isError: isErrorWhileUpdating, error: errorWhileUpdating },
+    ] = useUpdateTaskMutation();
+
+    const taskDispatch = useAppDispatch();
+
+    // This useEffect is help with Edit case
+    useEffect(() => {
+        if (isEdit === true && taskData != null) {
+            if (
+                taskData != null &&
+                taskData.title != null &&
+                taskData.title != undefined
+            ) {
+                setTaskTitle(taskData.title);
+            }
+
+            if (
+                taskData != null &&
+                taskData.description != null &&
+                taskData.description != undefined
+            ) {
+                setTaskDescription(taskData.description);
+            }
+
+            if (
+                taskData != null &&
+                taskData.details != null &&
+                taskData.details != undefined
+            ) {
+                const taskDetailList: TaskDetailDataList[] =
+                    taskData.details?.map((d, i) => ({
+                        id: d.id ?? i,
+                        taskToDo: d.detail ?? "",
+                        isCompleted: d.isCompleted,
+                    })) ?? [];
+                setTaskList(taskDetailList);
+            }
+        }
+    }, [isEdit]);
 
     if (!open) {
         return null;
@@ -22,7 +79,10 @@ const Popup = ({ open, onClose }: PopupProps) => {
 
     const handleTaskAdd = () => {
         if (task !== "") {
-            setTaskList([...taskList, task]);
+            setTaskList([
+                ...taskList,
+                { id: 0, taskToDo: task, isCompleted: false },
+            ]);
         }
         setTask("");
     };
@@ -38,29 +98,69 @@ const Popup = ({ open, onClose }: PopupProps) => {
     };
 
     function handleCreateOrUpdateTask(): void {
-        let newTaskDetails: TaskDetailDto[] = [];
+        if (isEdit) {
+            if (taskData == null) {
+                console.log("Somenthing went wrong in edit");
+                return;
+            }
 
-        if (taskList && taskList.length > 0) {
-            newTaskDetails = taskList.map((taskDetial) => ({
+            // Task To Do List
+            let updatedTaskDetails: TaskDetailDto[] = [];
+            if (taskList && taskList.length > 0) {
+                updatedTaskDetails = taskList.map((taskDetial) => ({
+                    id: taskDetial.id,
+                    taskId: taskData.id,
+                    detail: taskDetial.taskToDo,
+                    isCompleted: taskDetial.isCompleted,
+                }));
+            }
+
+            // Updated Task
+            const updatedTask: TaskDto = {
+                id: taskData.id,
+                createDate: taskData.createDate,
+                category: taskData.category,
+                title: taskTitle,
+                description: taskDescription === "" ? null : taskDescription,
+                details: updatedTaskDetails,
+            };
+
+            updateTask(updatedTask);
+            reset();
+            handlePopupClose();
+        } else {
+            let newTaskDetails: TaskDetailDto[] = [];
+
+            if (taskList && taskList.length > 0) {
+                newTaskDetails = taskList.map((taskDetial) => ({
+                    id: taskDetial.id,
+                    taskId: 0,
+                    detail: taskDetial.taskToDo,
+                    isCompleted: false,
+                }));
+            }
+
+            const newTask: TaskDto = {
                 id: 0,
-                taskId: 0,
-                detail: taskDetial,
-                isCompleted: false,
-            }));
+                createDate: new Date(),
+                category: 1,
+                title: taskTitle,
+                description: taskDescription === "" ? null : taskDescription,
+                details: newTaskDetails,
+            };
+            createTask(newTask);
+            reset();
+            handlePopupClose();
         }
+    }
 
-        const newTask: TaskDto = {
-            id: 0,
-            createDate: new Date(),
-            category: 1,
-            title: taskTitle,
-            description: taskDescription === "" ? null : taskDescription,
-            details: newTaskDetails,
-        };
-        
+    function handlePopupClose() {
         reset();
-        
-        createTask(newTask);
+        onClose(false);
+
+        if (isEdit === true) {
+            taskDispatch(clearTask());
+        }
     }
 
     function reset() {
@@ -70,8 +170,15 @@ const Popup = ({ open, onClose }: PopupProps) => {
         setTaskList([]);
     }
 
-    if (isError && error != undefined) {
-        console.log(error);
+    if (
+        (isError && error != undefined) ||
+        (isErrorWhileUpdating && errorWhileUpdating != undefined)
+    ) {
+        if (error != undefined) {
+            console.log(error);
+        } else if (errorWhileUpdating != undefined) {
+            console.log(errorWhileUpdating);
+        }
     }
 
     return (
@@ -85,7 +192,9 @@ const Popup = ({ open, onClose }: PopupProps) => {
                 className="relative bg-white p-6 rounded-lg shadow-xl z-50 w-[500px] h-auto"
                 onClick={(e) => e.stopPropagation()}
             >
-                <h2 className="text-xl font-semibold">New Task</h2>
+                <h2 className="text-xl font-semibold">
+                    {isEdit === false ? "New Task" : "Edit Task"}
+                </h2>
                 <input
                     className="w-full h-10 mt-4 border-2 border-gray-400 placeholder:font-semibold px-2"
                     type="text"
@@ -133,13 +242,13 @@ const Popup = ({ open, onClose }: PopupProps) => {
                         className="bg-[#2E2D2F] p-2 border-2 h-10 w-full text-white cursor-pointer"
                         onClick={handleCreateOrUpdateTask}
                     >
-                        Create
+                        {isEdit === false ? "Create" : "Update"}
                     </button>
                 </div>
                 {/* Popup Close Button start */}
                 <button
                     className="absolute w-10 h-10 -top-8 -right-12 mt-4 bg-[#2E2D2F] px-2 py-2 rounded-full cursor-pointer"
-                    onClick={onClose}
+                    onClick={() => handlePopupClose()}
                 >
                     <img
                         className="invert brightness-0 contrast-200"

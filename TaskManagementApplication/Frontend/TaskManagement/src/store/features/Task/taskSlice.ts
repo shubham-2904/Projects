@@ -1,26 +1,25 @@
 import { createSlice, type PayloadAction } from "@reduxjs/toolkit";
-
-interface TaskState {
-    value: string[];
-}
+import type { TaskState } from "../../../models/TaskModel";
 
 const initialState: TaskState = {
-    value: [],
+    value: null,
 };
 
 export const taskSlice = createSlice({
     name: "task",
     initialState,
     reducers: {
-        addTask: (state, action: PayloadAction<string>) => {
-            state.value.push(action.payload);
+        editTask: (state, action: PayloadAction<TaskState>) => {
+            state.value = action.payload.value;
+            state.operation = action.payload.operation;
         },
-        deleteTask: (state, action: PayloadAction<number>) => {
-            state.value.splice(action.payload, 1);
-        },
+        clearTask: (state) => {
+            state.value = null;
+            state.operation = undefined;
+        }
     },
 });
 
-export const { addTask, deleteTask } = taskSlice.actions;
+export const { editTask, clearTask } = taskSlice.actions;
 
 export default taskSlice.reducer;

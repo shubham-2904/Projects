@@ -1,12 +1,25 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Button from "./components/Button";
 import NoteText from "./components/NoteText";
 import SearchField from "./components/SearchField";
 import Popup from "./components/Popup";
 import Notes from "./components/Notes";
+import { useAppSelector } from "./store/hooks/taskHooks";
+import { operationsEnums } from "./models/TaskEnums";
 
 function App() {
     const [openAddMenu, setOpenAddMenu] = useState<boolean>(false);
+    const [isEdit, setIsEdit] = useState<boolean>(false);
+    const taskState = useAppSelector((state) => state.task);
+
+    useEffect(() => {
+        if (taskState.operation == operationsEnums.edit) {
+            setIsEdit(true);
+            setOpenAddMenu(true);
+        } else if (taskState.operation == undefined) {
+            setIsEdit(false);
+        }
+    }, [taskState.operation]);
 
     return (
         <div className="w-full h-screen overflow-y-scroll [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden">
@@ -25,7 +38,9 @@ function App() {
             {openAddMenu && (
                 <Popup
                     open={openAddMenu}
-                    onClose={() => setOpenAddMenu(false)}
+                    isEdit={isEdit}
+                    taskData={taskState.value}
+                    onClose={setOpenAddMenu}
                 />
             )}
             {/* Notes */}

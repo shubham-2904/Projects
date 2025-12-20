@@ -1,4 +1,4 @@
-import type {TaskEnum} from "./TaskEnums";
+import type { operationEnum, TaskEnum } from "./TaskEnums";
 
 export interface TaskDto {
     id: number;
@@ -13,5 +13,16 @@ export interface TaskDetailDto {
     id: number;
     taskId: number;
     detail?: string | null;
+    isCompleted: boolean;
+}
+
+export interface TaskState {
+    value: TaskDto | null;
+    operation?: operationEnum;
+}
+
+export interface TaskDetailDataList {
+    id: number;
+    taskToDo: string;
     isCompleted: boolean;
 }

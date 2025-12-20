@@ -1,5 +1,7 @@
+import type { TaskDetailDataList } from "../models/TaskModel";
+
 interface AddedTaskProps {
-    tasks: string[];
+    tasks: TaskDetailDataList[];
     onDelete: (positionOfElement: number) => void
 }
 
@@ -15,8 +17,11 @@ const AddedTask = ({ tasks, onDelete }: AddedTaskProps) => {
                                 bg-gray-300 rounded-sm mb-1 px-2
                                 flex items-center justify-between hover:bg-[#2E2D2F] duration-300 ease-in"
                         >
-                            <p className="text-[1.2em] group-hover:text-white group-hover:duration-300 group-hover:ease-in">
-                                {task}
+                            <p
+                                id={`${task.id}`}
+                                className="text-[1.2em] group-hover:text-white group-hover:duration-300 group-hover:ease-in"
+                            >
+                                {task.taskToDo}
                             </p>
                             <img
                                 id={"new-" + index}

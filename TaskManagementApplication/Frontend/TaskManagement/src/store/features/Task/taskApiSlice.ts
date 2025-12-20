@@ -15,11 +15,13 @@ export const taskApiSlice = createApi({
                 providesTags: ["Task"],
             }),
             createTask: builder.mutation<Response<TaskDto>, TaskDto>({
-                query: (body) => ({
-                    url: "/taskmanager/create-task",
-                    method: "POST",
-                    body,
-                }),
+                query: (body) => {
+                    return {
+                        url: "/taskmanager/create-task",
+                        method: "POST",
+                        body,
+                    };
+                },
                 invalidatesTags: ["Task"],
             }),
             deleteTask: builder.mutation<Response<number>, number>({
@@ -52,6 +54,6 @@ export const {
     useGetAllTaskQuery,
     useCreateTaskMutation,
     useDeleteTaskMutation,
-    useGetTaskQuery,
+    useLazyGetTaskQuery,
     useUpdateTaskMutation,
 } = taskApiSlice;

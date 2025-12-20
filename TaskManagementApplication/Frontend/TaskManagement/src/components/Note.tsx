@@ -44,42 +44,40 @@ const Note: React.FC<noteProps> = ({ task, noteTheme }) => {
             <div className="mt-2">
                 {task.details &&
                     task.details.length > 0 &&
-                    task.details.map((taskDetail) => {
+                    task.details.map((taskDetail, index) => {
                         return (
-                            <>
-                                <ul
-                                    key={taskDetail.id}
-                                    className={`flex items-center justify-between ${noteTheme.opacityColor} ${noteTheme.textTertory} mb-2 px-3 duration-300 ease-in-out hover:scale-105 hover:cursor-pointer`}
-                                >
-                                    <p>
-                                        {taskDetail.isCompleted ? (
-                                            <s>taskDetail.detail</s>
-                                        ) : (
-                                            taskDetail.detail
-                                        )}
-                                    </p>
-                                    <div className="flex items-center p-1">
-                                        <button
-                                            className={`${noteTheme.bgPrimary} rounded-full w-6 h-6 p-1`}
-                                        >
-                                            <img
-                                                className="invert brightness-0 contrast-200 hover:scale-125 duration-300 ease-in-out"
-                                                src="images/edit.svg"
-                                                alt="Edit"
-                                            />
-                                        </button>
-                                        <button
-                                            className={`${noteTheme.bgPrimary} rounded-full w-6 h-6 p-1 ml-2`}
-                                        >
-                                            <img
-                                                className="invert brightness-0 contrast-200 hover:scale-125 hover:duration-300 hover:ease-in-out"
-                                                src="images/delete.svg"
-                                                alt="Delete"
-                                            />
-                                        </button>
-                                    </div>
-                                </ul>
-                            </>
+                            <ul
+                                key={index}
+                                className={`flex items-center justify-between ${noteTheme.opacityColor} ${noteTheme.textTertory} mb-2 px-3 duration-300 ease-in-out hover:scale-105 hover:cursor-pointer`}
+                            >
+                                <p>
+                                    {taskDetail.isCompleted ? (
+                                        <s>taskDetail.detail</s>
+                                    ) : (
+                                        taskDetail.detail
+                                    )}
+                                </p>
+                                <div className="flex items-center p-1">
+                                    <button
+                                        className={`${noteTheme.bgPrimary} rounded-full w-6 h-6 p-1`}
+                                    >
+                                        <img
+                                            className="invert brightness-0 contrast-200 hover:scale-125 duration-300 ease-in-out"
+                                            src="images/edit.svg"
+                                            alt="Edit"
+                                        />
+                                    </button>
+                                    <button
+                                        className={`${noteTheme.bgPrimary} rounded-full w-6 h-6 p-1 ml-2`}
+                                    >
+                                        <img
+                                            className="invert brightness-0 contrast-200 hover:scale-125 hover:duration-300 hover:ease-in-out"
+                                            src="images/delete.svg"
+                                            alt="Delete"
+                                        />
+                                    </button>
+                                </div>
+                            </ul>
                         );
                     })}
             </div>
