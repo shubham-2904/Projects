@@ -2,6 +2,7 @@ import { useState } from "react";
 import type { TaskDto } from "../models/TaskModel";
 import type { colorTheme } from "../utilities/colorTheme";
 import NoteMenu from "./NoteMenu";
+import { useMarkTaskCompleteOrUnCompleteMutation } from "../store/features/Task/taskApiSlice";
 
 interface noteProps {
     task: TaskDto;
@@ -10,6 +11,11 @@ interface noteProps {
 
 const Note: React.FC<noteProps> = ({ task, noteTheme }) => {
     const [noteMenuShow, setNoteMenuShow] = useState(false);
+    const [markUnMarkTask, {}] = useMarkTaskCompleteOrUnCompleteMutation();
+
+    function handleTask(taskDetailId: number) {
+        markUnMarkTask(taskDetailId);
+    }
 
     return (
         <div
@@ -49,10 +55,11 @@ const Note: React.FC<noteProps> = ({ task, noteTheme }) => {
                             <ul
                                 key={index}
                                 className={`flex items-center justify-between ${noteTheme.opacityColor} ${noteTheme.textTertory} mb-2 px-3 duration-300 ease-in-out hover:scale-105 hover:cursor-pointer`}
+                                onClick={() => handleTask(taskDetail.id)}
                             >
                                 <p>
                                     {taskDetail.isCompleted ? (
-                                        <s>taskDetail.detail</s>
+                                        <s>{taskDetail.detail}</s>
                                     ) : (
                                         taskDetail.detail
                                     )}

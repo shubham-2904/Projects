@@ -46,6 +46,15 @@ export const taskApiSlice = createApi({
                 },
                 invalidatesTags: ["Task"],
             }),
+            markTaskCompleteOrUnComplete: builder.mutation<Response<boolean>, number>({
+                query: (taskDetailId) => {
+                    return {
+                        url: `/taskmanager/mark-task-detail/${taskDetailId}`,
+                        method: "POST",
+                    };
+                },
+                invalidatesTags: ["Task"],
+            }),
         };
     },
 });
@@ -56,4 +65,5 @@ export const {
     useDeleteTaskMutation,
     useLazyGetTaskQuery,
     useUpdateTaskMutation,
+    useMarkTaskCompleteOrUnCompleteMutation
 } = taskApiSlice;
