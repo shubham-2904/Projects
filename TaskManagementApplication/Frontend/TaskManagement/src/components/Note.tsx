@@ -2,7 +2,10 @@ import { useState } from "react";
 import type { TaskDto } from "../models/TaskModel";
 import type { colorTheme } from "../utilities/colorTheme";
 import NoteMenu from "./NoteMenu";
-import { useMarkTaskCompleteOrUnCompleteMutation } from "../store/features/Task/taskApiSlice";
+import {
+    useDeleteTaskDetailByIdMutation,
+    useMarkTaskCompleteOrUnCompleteMutation,
+} from "../store/features/Task/taskApiSlice";
 
 interface noteProps {
     task: TaskDto;
@@ -12,9 +15,18 @@ interface noteProps {
 const Note: React.FC<noteProps> = ({ task, noteTheme }) => {
     const [noteMenuShow, setNoteMenuShow] = useState(false);
     const [markUnMarkTask, {}] = useMarkTaskCompleteOrUnCompleteMutation();
+    const [deleteTaskDetail, {}] = useDeleteTaskDetailByIdMutation();
 
     function handleTask(taskDetailId: number) {
         markUnMarkTask(taskDetailId);
+    }
+
+    function handleTaskDelete(taskDetailId: number) {
+        deleteTaskDetail(taskDetailId);
+    }
+
+    function handleTaskEdit(taskDetailId: number) {
+        // TODO: need to complete the edit task detail code
     }
 
     return (
@@ -67,6 +79,10 @@ const Note: React.FC<noteProps> = ({ task, noteTheme }) => {
                                 <div className="flex items-center p-1">
                                     <button
                                         className={`${noteTheme.bgPrimary} rounded-full w-6 h-6 p-1`}
+                                        onClick={(e) => {
+                                            e.stopPropagation();
+                                            handleTaskEdit(taskDetail.id);
+                                        }}
                                     >
                                         <img
                                             className="invert brightness-0 contrast-200 hover:scale-125 duration-300 ease-in-out"
@@ -76,6 +92,10 @@ const Note: React.FC<noteProps> = ({ task, noteTheme }) => {
                                     </button>
                                     <button
                                         className={`${noteTheme.bgPrimary} rounded-full w-6 h-6 p-1 ml-2`}
+                                        onClick={(e) => {
+                                            e.stopPropagation();
+                                            handleTaskDelete(taskDetail.id);
+                                        }}
                                     >
                                         <img
                                             className="invert brightness-0 contrast-200 hover:scale-125 hover:duration-300 hover:ease-in-out"

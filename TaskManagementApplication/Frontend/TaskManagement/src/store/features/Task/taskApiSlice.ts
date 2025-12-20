@@ -55,6 +55,16 @@ export const taskApiSlice = createApi({
                 },
                 invalidatesTags: ["Task"],
             }),
+            deleteTaskDetailById: builder.mutation<Response<number>, number>({
+                query: (taskDetailId) => {
+                    console.log(taskDetailId);
+                    return {
+                        url: `/taskmanager/delete-task-detail/${taskDetailId}`,
+                        method: "DELETE",
+                    };
+                },
+                invalidatesTags: ["Task"],
+            }),
         };
     },
 });
@@ -65,5 +75,6 @@ export const {
     useDeleteTaskMutation,
     useLazyGetTaskQuery,
     useUpdateTaskMutation,
-    useMarkTaskCompleteOrUnCompleteMutation
+    useMarkTaskCompleteOrUnCompleteMutation,
+    useDeleteTaskDetailByIdMutation,
 } = taskApiSlice;
