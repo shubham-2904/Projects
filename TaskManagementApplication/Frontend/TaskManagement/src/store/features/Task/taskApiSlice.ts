@@ -1,8 +1,8 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
-import type { TaskDto } from "../../../models/TaskModel";
+import type { TaskDetailDto, TaskDto } from "../../../models/TaskModel";
 import type { Response } from "../../../models/Response";
 
-const BASE_URL = "http://localhost:5276/api";
+const BASE_URL = "http://localhost/TaskManagemenSystem/Development/api";
 
 export const taskApiSlice = createApi({
     reducerPath: "taskApi",
@@ -57,7 +57,6 @@ export const taskApiSlice = createApi({
             }),
             deleteTaskDetailById: builder.mutation<Response<number>, number>({
                 query: (taskDetailId) => {
-                    console.log(taskDetailId);
                     return {
                         url: `/taskmanager/delete-task-detail/${taskDetailId}`,
                         method: "DELETE",
@@ -65,6 +64,16 @@ export const taskApiSlice = createApi({
                 },
                 invalidatesTags: ["Task"],
             }),
+            updateTaskDetail: builder.mutation<Response<number>, TaskDetailDto>({
+                query: (updatedTaskDetailDto) => {
+                    return {
+                        url: `/taskmanager/update-task-detail/`,
+                        method: "POST",
+                        body: updatedTaskDetailDto,
+                    }
+                },
+                invalidatesTags: ["Task"],
+            })
         };
     },
 });
@@ -77,4 +86,5 @@ export const {
     useUpdateTaskMutation,
     useMarkTaskCompleteOrUnCompleteMutation,
     useDeleteTaskDetailByIdMutation,
+    useUpdateTaskDetailMutation,
 } = taskApiSlice;

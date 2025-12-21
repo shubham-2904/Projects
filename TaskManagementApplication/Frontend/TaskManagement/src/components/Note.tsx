@@ -1,10 +1,11 @@
 import { useState } from "react";
-import type { TaskDto } from "../models/TaskModel";
+import type { TaskDetailDto, TaskDto } from "../models/TaskModel";
 import type { colorTheme } from "../utilities/colorTheme";
 import NoteMenu from "./NoteMenu";
 import {
     useDeleteTaskDetailByIdMutation,
     useMarkTaskCompleteOrUnCompleteMutation,
+    useUpdateTaskDetailMutation,
 } from "../store/features/Task/taskApiSlice";
 
 interface noteProps {
@@ -14,8 +15,12 @@ interface noteProps {
 
 const Note: React.FC<noteProps> = ({ task, noteTheme }) => {
     const [noteMenuShow, setNoteMenuShow] = useState(false);
+    const [editText, setEditText] = useState<string | null>(null);
+    const [editingId, setEditingId] = useState<number | null>();
+
     const [markUnMarkTask, {}] = useMarkTaskCompleteOrUnCompleteMutation();
     const [deleteTaskDetail, {}] = useDeleteTaskDetailByIdMutation();
+    const [updateTaskDetail, {}] = useUpdateTaskDetailMutation();
 
     function handleTask(taskDetailId: number) {
         markUnMarkTask(taskDetailId);
@@ -25,8 +30,28 @@ const Note: React.FC<noteProps> = ({ task, noteTheme }) => {
         deleteTaskDetail(taskDetailId);
     }
 
-    function handleTaskEdit(taskDetailId: number) {
-        // TODO: need to complete the edit task detail code
+    function handleTaskEdit(
+        taskDetail: TaskDetailDto,
+        event?: React.KeyboardEvent<HTMLInputElement>
+    ) {
+        if (event != undefined) {
+            if (event.key === "Enter") {
+                let updatedTaskDetail: TaskDetailDto = {
+                    ...taskDetail,
+                    detail: editText
+                };
+                updateTaskDetail(updatedTaskDetail);
+
+                setEditingId(null);
+                setEditText(null);
+            } else if (event.key === "Escape") {
+                setEditingId(null);
+                setEditText(null);
+            }
+        } else {
+            setEditingId(taskDetail.id);
+            setEditText(taskDetail.detail ?? "");
+        }
     }
 
     return (
@@ -70,7 +95,19 @@ const Note: React.FC<noteProps> = ({ task, noteTheme }) => {
                                 onClick={() => handleTask(taskDetail.id)}
                             >
                                 <p>
-                                    {taskDetail.isCompleted ? (
+                                    {editingId === taskDetail.id ? (
+                                        <input
+                                            type="text"
+                                            value={editText ?? ""}
+                                            onChange={(e) =>
+                                                setEditText(e.target.value)
+                                            }
+                                            onKeyDown={(e) =>
+                                                handleTaskEdit(taskDetail, e)
+                                            }
+                                            autoFocus
+                                        />
+                                    ) : taskDetail.isCompleted ? (
                                         <s>{taskDetail.detail}</s>
                                     ) : (
                                         taskDetail.detail
@@ -81,7 +118,7 @@ const Note: React.FC<noteProps> = ({ task, noteTheme }) => {
                                         className={`${noteTheme.bgPrimary} rounded-full w-6 h-6 p-1`}
                                         onClick={(e) => {
                                             e.stopPropagation();
-                                            handleTaskEdit(taskDetail.id);
+                                            handleTaskEdit(taskDetail);
                                         }}
                                     >
                                         <img
