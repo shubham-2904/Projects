@@ -1,0 +1,20 @@
+<Solution>
+  <Folder Name="/Src/" />
+  <Folder Name="/Src/API/">
+    <Project Path="Authentication.API/Authentication.API.csproj" />
+  </Folder>
+  <Folder Name="/Src/Application/" />
+  <Folder Name="/Src/Application/Authentication/">
+    <Project Path="AuthenticationServices/AuthenticationServices.csproj" Id="0eb8d643-589f-4406-b4b5-67e8cda19918" />
+  </Folder>
+  <Folder Name="/Src/Domain/">
+    <Project Path="Authentication.Domain/Authentication.Domain.csproj" />
+  </Folder>
+  <Folder Name="/Src/Infrastructure/" />
+  <Folder Name="/Src/Infrastructure/DbContexts/">
+    <Project Path="Authentication.DbContext/Authentication.Infrastructure.DBContext.csproj" />
+  </Folder>
+  <Folder Name="/Src/Utility/">
+    <Project Path="AuctionAp.Utilities/AuctionAp.Utilities.csproj" />
+  </Folder>
+</Solution>
