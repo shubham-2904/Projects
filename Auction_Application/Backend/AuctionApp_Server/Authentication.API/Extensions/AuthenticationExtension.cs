@@ -32,7 +32,7 @@ public static class AuthenticationExtension
     /// <param name="config"></param>
     public static void AddSqlDb(this IServiceCollection services, IConfiguration config)
     {
-        services.AddPooledDbContextFactory<AuthenticationDbContext>(options =>
+        services.AddDbContext<AuthenticationDbContext>(options =>
             options.UseSqlServer(config.GetConnectionString("sqlConnection"))
         );
     }

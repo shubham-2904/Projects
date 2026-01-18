@@ -14,6 +14,10 @@
   <Folder Name="/Src/Infrastructure/DbContexts/">
     <Project Path="Authentication.DbContext/Authentication.Infrastructure.DBContext.csproj" />
   </Folder>
+  <Folder Name="/Src/Infrastructure/Repositories/">
+    <Project Path="AuthenticationRepositories/AuthenticationRepositories.csproj" Id="971389be-e15c-409e-9952-645e98d5c4ea" />
+  </Folder>
+  <Folder Name="/Src/Shared/" />
   <Folder Name="/Src/Utility/">
     <Project Path="AuctionAp.Utilities/AuctionAp.Utilities.csproj" />
   </Folder>
