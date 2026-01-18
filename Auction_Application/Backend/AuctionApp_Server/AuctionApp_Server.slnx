@@ -16,6 +16,7 @@
   </Folder>
   <Folder Name="/Src/Infrastructure/Repositories/">
     <Project Path="AuthenticationRepositories/AuthenticationRepositories.csproj" Id="971389be-e15c-409e-9952-645e98d5c4ea" />
+    <Project Path="AuthenticationRepositoryManager/AuthenticationRepositoryManager.csproj" Id="2d762e9a-bb5f-4d7b-8eae-db38607eb50c" />
   </Folder>
   <Folder Name="/Src/Shared/" />
   <Folder Name="/Src/Utility/">

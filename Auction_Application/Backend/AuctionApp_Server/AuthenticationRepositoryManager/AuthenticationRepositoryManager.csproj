@@ -1,0 +1,14 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Authentication.DbContext\Authentication.Infrastructure.DBContext.csproj" />
+    <ProjectReference Include="..\AuthenticationRepositories\AuthenticationRepositories.csproj" />
+  </ItemGroup>
+
+</Project>
