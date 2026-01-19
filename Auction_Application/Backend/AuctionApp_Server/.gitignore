@@ -41,6 +41,7 @@ Desktop.ini
 appsettings.Development.json
 appsettings.Local.json
 utilities.config.json
+tokens.config.json
 
 ############################################
 # Dotnet tools

@@ -7,7 +7,7 @@ namespace AuthenticationRepositories.Repositories;
 
 public class Repository<T>(AuthenticationDbContext context) : IRepository<T> where T : class
 {
-    private readonly AuthenticationDbContext _authenticationContext= context;
+    private readonly AuthenticationDbContext _authenticationContext = context;
 
     public async Task CreateAsync(T entity)
     {

@@ -20,6 +20,7 @@
   </Folder>
   <Folder Name="/Src/Shared/" />
   <Folder Name="/Src/Utility/">
-    <Project Path="AuctionAp.Utilities/AuctionAp.Utilities.csproj" />
+    <Project Path="AuctionAp.Utilities/AuctionApp.Utilities.csproj" />
+    <Project Path="AuctionApp.Token/AuctionApp.Token.csproj" Id="92a5c9e2-d506-48c1-83b3-58e91568ac14" />
   </Folder>
 </Solution>

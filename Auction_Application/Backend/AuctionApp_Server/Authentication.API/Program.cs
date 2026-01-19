@@ -8,8 +8,12 @@ builder.Services.AddControllers();
 
 // Injecting Extension Services
 builder.Configuration.AddUtiliesConfigJson();
+builder.Configuration.AddTokenConfigJson();
+
 builder.Services.AddUtilityRegistration();
+builder.Services.AddJwtTokenAuthentication(builder.Configuration);
 builder.Services.AddSqlDb(builder.Configuration);
+
 builder.Services.AddAuthenticationService();
 
 var app = builder.Build();
@@ -23,6 +27,7 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 
+app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapControllers();

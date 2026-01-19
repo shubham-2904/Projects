@@ -4,13 +4,20 @@ using AuthenticationRepositories.Repositories;
 
 namespace AuthenticationRepositoryManager;
 
-public class RepositoryManager(AuthenticationDbContext authenticationContext) : IRepositoryManager
+public class RepositoryManager : IRepositoryManager
 {
-    private readonly AuthenticationDbContext _authenticationContext = authenticationContext;
-    
-    private readonly Lazy<IUserLoginRepository> _userLoginRepository = new(() => new UserLoginRepository());
-    private readonly Lazy<ILoginStatusRepository> _loginStatusRepository = new(() => new LoginStatusRepository());
+    private readonly AuthenticationDbContext _authenticationContext;
 
+    private readonly Lazy<IUserLoginRepository> _userLoginRepository;
+    private readonly Lazy<ILoginStatusRepository> _loginStatusRepository;
+
+    public RepositoryManager(AuthenticationDbContext authenticationContext)
+    {
+        _authenticationContext = authenticationContext;
+        _userLoginRepository = new(() => new UserLoginRepository(_authenticationContext));
+        _loginStatusRepository = new(() => new LoginStatusRepository());
+    }
+    
     public IUserLoginRepository UserLogin => _userLoginRepository.Value;
     public ILoginStatusRepository LoginStatus => _loginStatusRepository.Value;
 

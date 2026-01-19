@@ -2,7 +2,7 @@
 using System.Security.Cryptography;
 using System.Text;
 
-namespace AuctionAp.Utilities;
+namespace AuctionApp.Utilities;
 
 /// <summary>
 /// This class contain the Utility methods used in the application
