@@ -19,6 +19,9 @@
     <Project Path="AuthenticationRepositoryManager/AuthenticationRepositoryManager.csproj" Id="2d762e9a-bb5f-4d7b-8eae-db38607eb50c" />
   </Folder>
   <Folder Name="/Src/Shared/" />
+  <Folder Name="/Src/Shared/Middlewares/">
+    <Project Path="AuctionApp.GlobalExceptionMiddleware/AuctionApp.GlobalMiddleware.csproj" Id="63a285d2-9bf8-4721-9a06-28faa5aacda9" />
+  </Folder>
   <Folder Name="/Src/Utility/">
     <Project Path="AuctionAp.Utilities/AuctionApp.Utilities.csproj" />
     <Project Path="AuctionApp.Token/AuctionApp.Token.csproj" Id="92a5c9e2-d506-48c1-83b3-58e91568ac14" />

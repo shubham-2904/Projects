@@ -17,6 +17,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\AuctionAp.Utilities\AuctionApp.Utilities.csproj" />
+    <ProjectReference Include="..\AuctionApp.GlobalExceptionMiddleware\AuctionApp.GlobalMiddleware.csproj" />
     <ProjectReference Include="..\AuctionApp.Token\AuctionApp.Token.csproj" />
     <ProjectReference Include="..\Authentication.DbContext\Authentication.Infrastructure.DBContext.csproj" />
     <ProjectReference Include="..\AuthenticationServices\AuthenticationServices.csproj" />

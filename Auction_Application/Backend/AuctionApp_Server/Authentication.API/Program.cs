@@ -1,3 +1,4 @@
+using AuctionApp.GlobalMiddleware;
 using Authentication.API.Extensions;
 using Scalar.AspNetCore;
 
@@ -26,6 +27,8 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+
+app.UseMiddleware<ExceptionHandlingMiddleware>();
 
 app.UseAuthentication();
 app.UseAuthorization();

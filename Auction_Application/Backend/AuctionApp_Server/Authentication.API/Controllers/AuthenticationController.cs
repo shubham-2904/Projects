@@ -9,4 +9,8 @@ public class AuthenticationController : Controller
 {
     [HttpGet("healt-check")]
     public async Task<IActionResult> GetApiHealth() => Ok("Api is running...");
+
+    [Authorize]
+    [HttpGet("healt-check-authorize")]
+    public async Task<IActionResult> GetApiHealthAuthorize() => Ok("Api is running...");
 }
