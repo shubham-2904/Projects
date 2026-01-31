@@ -11,7 +11,6 @@ builder.Services.AddControllers();
 builder.Configuration.AddUtiliesConfigJson();
 builder.Configuration.AddTokenConfigJson();
 
-builder.Services.AddUtilityRegistration();
 builder.Services.AddJwtTokenAuthentication(builder.Configuration);
 builder.Services.AddSqlDb(builder.Configuration);
 

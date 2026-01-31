@@ -6,9 +6,9 @@ namespace AuctionApp.Token;
 
 public interface ITokenService
 {
-    string GenerateToken();
+    string GenerateToken(TokenPayload tokenPayload);
 
-    string RefreshToken();
+    string RefreshToken(TokenPayload tokenPayload);
 
     bool VerifyToken(string token);
 }

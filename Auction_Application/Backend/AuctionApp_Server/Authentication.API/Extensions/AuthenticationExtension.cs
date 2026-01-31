@@ -1,4 +1,4 @@
-﻿using AuctionApp.Utilities;
+﻿using AuctionApp.Token;
 using Authentication.Infrastructure.DBContext;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
@@ -30,15 +30,6 @@ public static class AuthenticationExtension
     }
 
     /// <summary>
-    /// Adds Utility class to service collection pipeline
-    /// </summary>
-    /// <param name="services"></param>
-    public static void AddUtilityRegistration(this IServiceCollection services)
-    {
-        services.AddSingleton<AuctionApp.Utilities.Utility>();
-    }
-
-    /// <summary>
     /// Adds Sql Database to the pipeline
     /// </summary>
     /// <param name="services"></param>
@@ -56,7 +47,8 @@ public static class AuthenticationExtension
     /// <param name="services"></param>
     public static void AddAuthenticationService(this IServiceCollection services)
     {
-        
+        services.AddSingleton<AuctionApp.Utilities.Utility>();
+        services.AddSingleton<JWTTokenService>();
     }
 
     /// <summary>
