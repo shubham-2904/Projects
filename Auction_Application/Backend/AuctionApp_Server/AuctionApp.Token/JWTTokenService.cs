@@ -25,7 +25,7 @@ public sealed class JWTTokenService : ITokenService
     /// Method used to generate jwt token
     /// </summary>
     /// <param name="tokenPayload"></param>
-    /// <returns></returns>
+    /// <returns>return jwt token</returns>
     public string GenerateToken(TokenPayload tokenPayload)
     {
         IConfigurationSection jwtSettings = _configuration.GetSection("Jwt");
@@ -59,7 +59,7 @@ public sealed class JWTTokenService : ITokenService
     /// Method used to refresh token
     /// </summary>
     /// <param name="tokenPayload"></param>
-    /// <returns></returns>
+    /// <returns>return new generated jwt token</returns>
     public string RefreshToken(TokenPayload tokenPayload)
     {
         return GenerateToken(tokenPayload);
@@ -69,7 +69,7 @@ public sealed class JWTTokenService : ITokenService
     /// Method used to check if the token is still valid or expire
     /// </summary>
     /// <param name="token"></param>
-    /// <returns></returns>
+    /// <returns>return true if the jwt token is not expire else false</returns>
     /// <exception cref="NotImplementedException"></exception>
     public bool VerifyToken(string token)
     {

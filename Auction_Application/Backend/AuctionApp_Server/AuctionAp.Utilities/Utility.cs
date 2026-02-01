@@ -1,4 +1,5 @@
-﻿using Microsoft.Extensions.Configuration;
+﻿using Microsoft.AspNetCore.Cryptography.KeyDerivation;
+using Microsoft.Extensions.Configuration;
 using System.Security.Cryptography;
 using System.Text;
 
@@ -30,7 +31,8 @@ public sealed class Utility
         byte[] array;
         string cipherText = string.Empty;
 
-        var salt = Encoding.UTF8.GetBytes("random-salt");
+        var encrytionSalt = _configuration.GetSection("encryptionDecryptionSalt").Value!;
+        var salt = Encoding.UTF8.GetBytes(encrytionSalt);
 
         // Key Generation
         Rfc2898DeriveBytes keyDerivation = new Rfc2898DeriveBytes(key, salt, 100000, HashAlgorithmName.SHA512);
@@ -68,7 +70,8 @@ public sealed class Utility
         byte[] buffer = Convert.FromBase64String(cipherText);
         string plainText = string.Empty;
 
-        var salt = Encoding.UTF8.GetBytes("random-salt");
+        var decryptionSalt = _configuration.GetSection("encryptionDecryptionSalt").Value!;
+        var salt = Encoding.UTF8.GetBytes(decryptionSalt);
 
         // Key Generation
         Rfc2898DeriveBytes keyDerivation = new Rfc2898DeriveBytes(key, salt, 100000, HashAlgorithmName.SHA512);
@@ -87,5 +90,25 @@ public sealed class Utility
         }
 
         return plainText;
+    }
+
+    /// <summary>
+    /// Method used to hashed the password
+    /// </summary>
+    /// <param name="password"></param>
+    /// <returns>return hash password</returns>
+    public string HashingPassword(string password)
+    {
+        var hashedSalt = _configuration.GetSection("hashSalt").Value!;
+        byte[] salt = Encoding.UTF8.GetBytes(hashedSalt);
+
+        string hashedPassword = Convert.ToBase64String(KeyDerivation.Pbkdf2(
+            password,
+            salt,
+            KeyDerivationPrf.HMACSHA256,
+            1_000,
+            256 / 8));
+
+        return hashedPassword;
     }
 }
