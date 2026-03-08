@@ -30,13 +30,31 @@ sealed class UserService : IUserService
         }
         catch (Exception ex)
         {
+            _logger.LogError(ex, ex.Message);
             return Response<UserDto>.Fail("Error occured while creating user");
         }
     }
 
-    public Task<Response<bool>> DeleteUserAsync(long id)
+    public async Task<Response<bool>> DeleteUserAsync(long id)
     {
-        throw new NotImplementedException();
+        try
+        {
+            var user = await _repositoryManager.User.GetUserByIdAsync(id, true);
+            if (user is null)
+            {
+                _logger.LogError("User not found");
+                return Response<bool>.Fail("Error occured deleting user");
+            }
+            user.LastModifyDate = DateTime.UtcNow;
+            user.IsDeleted = true;
+            await _repositoryManager.CommitAsync();
+            return Response<bool>.Ok(true, "User deleted successfully");
+        }
+        catch (Exception ex)
+        {
+            _logger.LogError(ex, ex.Message);
+            return Response<bool>.Fail("Error occured deleting user");
+        }
     }
 
     public Task<Response<IEnumerable<UserDto>>> GetAllUsersAsync(bool trackChanges)
@@ -69,8 +87,24 @@ sealed class UserService : IUserService
         throw new NotImplementedException();
     }
 
-    public Task<Response<bool>> UpdateUserAsync(UserForUpdationDto userForUpdationDto)
+    public async Task<Response<bool>> UpdateUserAsync(UserForUpdationDto userForUpdationDto)
     {
-        throw new NotImplementedException();
+        try
+        {
+            User user = await _repositoryManager.User.GetUserByIdAsync(userForUpdationDto.Id, true);
+            if (user == null)
+            {
+                _logger.LogError("User not found");
+                return Response<bool>.Fail("User not found");
+            }
+            userForUpdationDto.ToEntity(user);
+            await _repositoryManager.CommitAsync();
+            return Response<bool>.Ok(true, "User updated successfully");
+        }
+        catch (Exception ex)
+        {
+            _logger.LogError(ex, ex.Message);
+            return Response<bool>.Fail("Error while updating user");
+        }
     }
 }
