@@ -21,7 +21,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\AuctionAp.Utilities\AuctionApp.Utilities.csproj" />
+    <ProjectReference Include="..\AuctionApp.Utilities\AuctionApp.Utilities.csproj" />
   </ItemGroup>
 
 </Project>

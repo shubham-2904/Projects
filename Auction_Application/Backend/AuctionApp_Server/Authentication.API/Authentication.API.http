@@ -1,6 +1,6 @@
-@Authentication.API_HostAddress = http://localhost:5186
+@Auction.Authentication.API_HostAddress = http://localhost:5186
 
-GET {{Authentication.API_HostAddress}}/weatherforecast/
+GET {{Auction.Authentication.API_HostAddress}}/weatherforecast/
 Accept: application/json
 
 ###

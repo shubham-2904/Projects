@@ -1,22 +1,29 @@
+using Auction.Reference.API.Extensions;
 using AuctionApp.GlobalMiddleware;
-using Auction.Authentication.API.Extensions;
+using LoggerService;
 using Scalar.AspNetCore;
+using Serilog;
 
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddOpenApi();
 builder.Services.AddControllers();
-
-// Injecting Extension Services
-builder.Configuration.AddUtiliesConfigJson();
-builder.Configuration.AddTokenConfigJson();
-
-builder.Services.AddJwtTokenAuthentication(builder.Configuration);
 builder.Services.AddSqlDb(builder.Configuration);
 
-builder.Services.AddAuthenticationService();
+//// Serilog Logger Service
+//Log.Logger = new LoggerConfiguration()
+//    .WriteTo.File("Logger/log.txt", rollingInterval: RollingInterval.Day)
+//    .CreateLogger();
+
+//LoggerManager log = new LoggerManager();
+//log.LogInfo("Hello world");
+
+//builder.Host.UseSerilog();
 
 var app = builder.Build();
+
+// Injecting Logger to application pipeline
+//app.UseSerilogRequestLogging();
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())

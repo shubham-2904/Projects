@@ -1,29 +1,45 @@
 <Solution>
   <Folder Name="/Src/" />
   <Folder Name="/Src/API/">
-    <Project Path="Authentication.API/Authentication.API.csproj" />
+    <Project Path="Auction.Reference.API/Auction.Reference.API.csproj" Id="6ef2ca3b-62c4-4023-b4dc-26db670dd18c" />
+    <Project Path="Authentication.API/Auction.Authentication.API.csproj" />
   </Folder>
   <Folder Name="/Src/Application/" />
   <Folder Name="/Src/Application/Authentication/">
     <Project Path="AuthenticationServices/AuthenticationServices.csproj" Id="0eb8d643-589f-4406-b4b5-67e8cda19918" />
   </Folder>
+  <Folder Name="/Src/Application/Reference/">
+    <Project Path="ReferenceServices/ReferenceServices.csproj" Id="fac38cba-bae5-47b1-a711-62aae3816e8c" />
+  </Folder>
   <Folder Name="/Src/Domain/">
     <Project Path="Authentication.Domain/Authentication.Domain.csproj" />
+    <Project Path="Reference.Domain/Reference.Domain.csproj" Id="1b403252-45d9-4d57-94d5-0d859bcd21b2" />
   </Folder>
   <Folder Name="/Src/Infrastructure/" />
   <Folder Name="/Src/Infrastructure/DbContexts/">
     <Project Path="Authentication.DbContext/Authentication.Infrastructure.DBContext.csproj" />
+    <Project Path="Referencee.Infrastructure.DBContext/Reference.Infrastructure.DBContext.csproj" Id="c1d127ba-4f4e-4c50-8127-fb8e2fcdfc6e" />
   </Folder>
-  <Folder Name="/Src/Infrastructure/Repositories/">
+  <Folder Name="/Src/Infrastructure/Repositories/" />
+  <Folder Name="/Src/Infrastructure/Repositories/Authentication/">
     <Project Path="AuthenticationRepositories/AuthenticationRepositories.csproj" Id="971389be-e15c-409e-9952-645e98d5c4ea" />
     <Project Path="AuthenticationRepositoryManager/AuthenticationRepositoryManager.csproj" Id="2d762e9a-bb5f-4d7b-8eae-db38607eb50c" />
   </Folder>
-  <Folder Name="/Src/Shared/" />
+  <Folder Name="/Src/Infrastructure/Repositories/Reference/">
+    <Project Path="ReferenceRepositories/ReferenceRepositories.csproj" Id="50ee61fc-4945-49dd-a643-92d18c6271dd" />
+    <Project Path="ReferenceRepositoryManager/ReferenceRepositoryManager.csproj" Id="191139b6-1c92-4d61-8763-d5532f060437" />
+  </Folder>
+  <Folder Name="/Src/Shared/">
+    <Project Path="SharedData/SharedData.csproj" Id="591d7521-f6b7-4992-a6be-245803865444" />
+  </Folder>
+  <Folder Name="/Src/Shared/Logger/">
+    <Project Path="LoggerService/LoggerService.csproj" Id="0cccd55b-cc88-4190-977b-dcd3a3301e24" />
+  </Folder>
   <Folder Name="/Src/Shared/Middlewares/">
     <Project Path="AuctionApp.GlobalExceptionMiddleware/AuctionApp.GlobalMiddleware.csproj" Id="63a285d2-9bf8-4721-9a06-28faa5aacda9" />
   </Folder>
   <Folder Name="/Src/Utility/">
-    <Project Path="AuctionAp.Utilities/AuctionApp.Utilities.csproj" />
     <Project Path="AuctionApp.Token/AuctionApp.Token.csproj" Id="92a5c9e2-d506-48c1-83b3-58e91568ac14" />
+    <Project Path="AuctionApp.Utilities/AuctionApp.Utilities.csproj" />
   </Folder>
 </Solution>

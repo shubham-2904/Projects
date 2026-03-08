@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
 
-namespace Authentication.API.Extensions;
+namespace Auction.Authentication.API.Extensions;
 
 public static class AuthenticationExtension
 {
