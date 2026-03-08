@@ -17,8 +17,8 @@
 
   <ItemGroup>
     <ProjectReference Include="..\AuctionApp.GlobalExceptionMiddleware\AuctionApp.GlobalMiddleware.csproj" />
-    <ProjectReference Include="..\LoggerService\LoggerService.csproj" />
     <ProjectReference Include="..\Referencee.Infrastructure.DBContext\Reference.Infrastructure.DBContext.csproj" />
+    <ProjectReference Include="..\ReferenceServices\ReferenceServices.csproj" />
   </ItemGroup>
 
 </Project>

@@ -6,23 +6,23 @@ using Serilog;
 
 var builder = WebApplication.CreateBuilder(args);
 
+// Serilog Logger Service
+Log.Logger = new LoggerConfiguration()
+    .WriteTo.File("Logs/log.txt", rollingInterval: RollingInterval.Day)
+    .CreateLogger();
+
 builder.Services.AddOpenApi();
 builder.Services.AddControllers();
 builder.Services.AddSqlDb(builder.Configuration);
-
-//// Serilog Logger Service
-//Log.Logger = new LoggerConfiguration()
-//    .WriteTo.File("Logger/log.txt", rollingInterval: RollingInterval.Day)
-//    .CreateLogger();
-
-//LoggerManager log = new LoggerManager();
-//log.LogInfo("Hello world");
+builder.Services.AddLoggerManager();
+builder.Services.AddRepositoryManager();
+builder.Services.AddServiceManager();
 
 //builder.Host.UseSerilog();
 
 var app = builder.Build();
 
-// Injecting Logger to application pipeline
+//// Injecting Logger to application pipeline
 //app.UseSerilogRequestLogging();
 
 // Configure the HTTP request pipeline.

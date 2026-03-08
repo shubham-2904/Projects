@@ -1,4 +1,5 @@
-﻿using Reference.Domain.Model;
+﻿using LoggerService;
+using Reference.Domain.Model;
 using ReferenceRepositoryManager;
 using ReferenceServices.Dtos;
 using ReferenceServices.ServicesInterfaces;
@@ -9,10 +10,12 @@ namespace ReferenceServices.Services;
 sealed class UserService : IUserService
 {
     private readonly IRepositoryManager _repositoryManager;
+    private readonly ILoggerManager _logger;
 
-    public UserService(IRepositoryManager repositoryManager)
+    public UserService(IRepositoryManager repositoryManager, ILoggerManager loggerManager)
     {
         _repositoryManager = repositoryManager;
+        _logger = loggerManager;
     }
 
     public async Task<Response<UserDto>> CreateUserAsync(UserForCreationDto userForCreationDto)
@@ -41,9 +44,24 @@ sealed class UserService : IUserService
         throw new NotImplementedException();
     }
 
-    public Task<Response<UserDto>> GetUserIdAsync(long id, bool trackChanges)
+    public async Task<Response<UserDto>> GetUserIdAsync(long id, bool trackChanges)
     {
-        throw new NotImplementedException();
+        try
+        {
+            User user = await _repositoryManager.User.GetUserByIdAsync(id, trackChanges);
+            if (user == null)
+            {
+                _logger.LogError("User not found");
+                return Response<UserDto>.Fail("User not found");
+            }
+            UserDto userDto = user!.ToDto();
+            return Response<UserDto>.Ok(userDto, "User fetched successfully");
+        }
+        catch (Exception ex)
+        {
+            _logger.LogError(ex, ex.Message);
+            return Response<UserDto>.Fail("Error while fetching user");
+        }
     }
 
     public Task<Response<IEnumerable<UserDto>>> GetUsersByIdsAsync(IEnumerable<long> ids, bool trackChanges)
