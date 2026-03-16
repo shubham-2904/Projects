@@ -66,11 +66,13 @@ sealed class UserService : IUserService
     {
         try
         {
-            User user = await _repositoryManager.User.GetUserByIdAsync(id, trackChanges);
+            User user = (await _repositoryManager.User
+                .GetAllUserOrByConditionAsync(trackChanges, u => u.UserId == id && u.IsDeleted == false))
+                .FirstOrDefault()!;
             if (user == null)
             {
-                _logger.LogError("User not found");
-                return Response<UserDto>.Fail("User not found");
+                _logger.LogError("User not found or deleted from DB");
+                return Response<UserDto>.Fail("User not found or deleted from DB");
             }
             UserDto userDto = user!.ToDto();
             return Response<UserDto>.Ok(userDto, "User fetched successfully");
