@@ -89,7 +89,7 @@ sealed class UserService : IUserService
         throw new NotImplementedException();
     }
 
-    public async Task<Response<bool>> UpdateUserAsync(UserForUpdationDto userForUpdationDto)
+    public async Task<Response<UserDto>> UpdateUserAsync(UserForUpdationDto userForUpdationDto)
     {
         try
         {
@@ -97,16 +97,17 @@ sealed class UserService : IUserService
             if (user == null)
             {
                 _logger.LogError("User not found");
-                return Response<bool>.Fail("User not found");
+                return Response<UserDto>.Fail("User not found");
             }
             userForUpdationDto.ToEntity(user);
             await _repositoryManager.CommitAsync();
-            return Response<bool>.Ok(true, "User updated successfully");
+            UserDto userDto = user.ToDto();
+            return Response<UserDto>.Ok(userDto, "User updated successfully");
         }
         catch (Exception ex)
         {
             _logger.LogError(ex, ex.Message);
-            return Response<bool>.Fail("Error while updating user");
+            return Response<UserDto>.Fail("Error while updating user");
         }
     }
 }

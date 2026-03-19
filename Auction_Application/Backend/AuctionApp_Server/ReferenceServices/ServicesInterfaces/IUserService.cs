@@ -13,7 +13,7 @@ public interface IUserService
 
     Task<Response<UserDto>> CreateUserAsync(UserForCreationDto userForCreationDto);
 
-    Task<Response<bool>> UpdateUserAsync(UserForUpdationDto userForUpdationDto);
+    Task<Response<UserDto>> UpdateUserAsync(UserForUpdationDto userForUpdationDto);
 
     Task<Response<bool>> DeleteUserAsync(long id);
 }

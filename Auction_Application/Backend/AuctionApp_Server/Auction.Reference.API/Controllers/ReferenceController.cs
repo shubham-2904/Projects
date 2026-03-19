@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using CustomAtrributes;
+using Microsoft.AspNetCore.Mvc;
 using ReferenceServices.Dtos;
 using ReferenceServices.ServicesInterfaces;
 
@@ -6,6 +7,7 @@ namespace Auction.Reference.API.Controllers;
 
 [ApiController]
 [Route("api/[controller]")]
+[ConcurrencyHandler]
 public class ReferenceController(IServiceManager services) : Controller
 {
     [HttpGet("healt-check")]

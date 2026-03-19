@@ -5,3 +5,9 @@
 2026-03-16 22:03:46.725 +05:30 [ERR] User not found
 2026-03-16 22:06:15.933 +05:30 [ERR] User not found or deleted from DB
 2026-03-16 22:08:33.427 +05:30 [ERR] User not found or deleted from DB
+2026-03-16 22:45:48.335 +05:30 [INF] Inside OnActionExecutionAsync
+2026-03-16 23:06:58.285 +05:30 [INF] Inside OnActionExecutionAsync
+2026-03-16 23:12:23.182 +05:30 [INF] OnActionExecutionAsync Start
+2026-03-16 23:12:25.099 +05:30 [INF] Controller: Reference and Action: GetUserById
+2026-03-16 23:20:51.905 +05:30 [INF] OnActionExecutionAsync Start
+2026-03-16 23:20:51.995 +05:30 [INF] Controller: Reference and Action: UpdateUser

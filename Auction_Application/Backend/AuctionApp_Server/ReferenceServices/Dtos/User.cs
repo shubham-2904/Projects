@@ -13,20 +13,39 @@ public record UserDto
     public int LockId { get; init; }
 }
 
-public record UserForCreationDto(
-    string FirstName,
-    string LastName,
-    short? Category,
-    int LockId
-);
+public record UserForCreationDto
+{
+    public string FirstName { get; set; }
+    public string LastName { get; set; }
+    public short? Category { get; set; }
+    public int LockId { get; set; }
 
-public record UserForUpdationDto(
-    long Id,
-    string FirstName,
-    string LastName,
-    short? Category,
-    int LockId
-);
+    public UserForCreationDto(string firstName, string lastName, short? category, int lockId)
+    {
+        FirstName = firstName;
+        LastName = lastName;
+        Category = category;
+        LockId = lockId;
+    }
+}
+
+public record UserForUpdationDto
+{
+    public long Id { get; set; }
+    public string FirstName { get; set; }
+    public string LastName { get; set; }
+    public short? Category { get; set; }
+    public int LockId { get; set; }
+
+    public UserForUpdationDto(long id, string firstName, string lastName, short? category, int lockId)
+    {
+        Id = id;
+        FirstName = firstName;
+        LastName = lastName;
+        Category = category;
+        LockId = lockId;
+    }
+}
 
 public static class UserDtoMethods
 {
@@ -59,7 +78,7 @@ public static class UserDtoMethods
             Category = dto.Category,
             CreatedAt = DateTime.UtcNow,
             LastModifyDate = DateTime.UtcNow,
-            LockId = 0
+            LockId = dto.LockId
         };
     }
 
@@ -75,5 +94,6 @@ public static class UserDtoMethods
         user.LastName = dto.LastName;
         user.Category = dto.Category;
         user.LastModifyDate = DateTime.UtcNow;
+        user.LockId = dto.LockId;
     }
 }

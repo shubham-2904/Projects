@@ -32,6 +32,9 @@
   <Folder Name="/Src/Shared/">
     <Project Path="SharedData/SharedData.csproj" Id="591d7521-f6b7-4992-a6be-245803865444" />
   </Folder>
+  <Folder Name="/Src/Shared/Attributes/">
+    <Project Path="CustomAtrributes/CustomAtrributes.csproj" Id="a41d6b40-b870-405b-a460-b110334f6058" />
+  </Folder>
   <Folder Name="/Src/Shared/Logger/">
     <Project Path="LoggerService/LoggerService.csproj" Id="0cccd55b-cc88-4190-977b-dcd3a3301e24" />
   </Folder>

@@ -17,6 +17,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\AuctionApp.GlobalExceptionMiddleware\AuctionApp.GlobalMiddleware.csproj" />
+    <ProjectReference Include="..\CustomAtrributes\CustomAtrributes.csproj" />
     <ProjectReference Include="..\Referencee.Infrastructure.DBContext\Reference.Infrastructure.DBContext.csproj" />
     <ProjectReference Include="..\ReferenceServices\ReferenceServices.csproj" />
   </ItemGroup>
