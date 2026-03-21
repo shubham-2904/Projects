@@ -1,5 +1,7 @@
 ﻿using CustomAtrributes;
 using Microsoft.AspNetCore.Mvc;
+using Reference.Domain.Model;
+using Reference.Infrastructure.DBContext;
 using ReferenceServices.Dtos;
 using ReferenceServices.ServicesInterfaces;
 
@@ -7,7 +9,7 @@ namespace Auction.Reference.API.Controllers;
 
 [ApiController]
 [Route("api/[controller]")]
-[ConcurrencyHandler]
+[ConcurrencyHandler(typeof(ReferenceDbContext), typeof(User))]
 public class ReferenceController(IServiceManager services) : Controller
 {
     [HttpGet("healt-check")]
