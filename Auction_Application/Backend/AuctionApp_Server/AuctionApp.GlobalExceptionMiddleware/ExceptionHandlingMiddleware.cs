@@ -25,6 +25,7 @@ public class ExceptionHandlingMiddleware(RequestDelegate next)
                 Title = "Server Error",
                 ErrorMessage = exception.Message
             };
+            context.Response.ContentType = "application/json; charset=utf-8";
             context.Response.StatusCode = StatusCodes.Status500InternalServerError;
             string jsonResponse = JsonSerializer.Serialize(exceptionResponse);
             await context.Response.WriteAsync(jsonResponse);

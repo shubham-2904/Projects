@@ -7,7 +7,7 @@ public interface IUserRepository
 {
     Task<IEnumerable<User>> GetAllUserOrByConditionAsync(bool trackChanges, Expression<Func<User, bool>>? condition);
 
-    Task<User> GetUserByIdAsync(long userId, bool trackChanges);
+    Task<User?> GetUserByIdAsync(long userId, bool trackChanges);
 
     void CreateUser(User user);
 

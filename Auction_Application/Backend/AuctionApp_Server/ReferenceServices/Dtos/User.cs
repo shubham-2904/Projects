@@ -1,4 +1,5 @@
 ﻿using Reference.Domain.Model;
+using AuctionApp.Utilities.Indicators;
 
 namespace ReferenceServices.Dtos;
 
@@ -8,8 +9,9 @@ public record UserDto
     public string ? FirstName { get; init; }
     public string ? LastName { get; init; }
     public string ? FullName { get; init; }
-    public short? Category { get; init; }
+    public UserCategoryInd? Category { get; init; }
     public DateTime? CreatedAt { get; init; }
+    public DateTime? LastModifyDate { get; set; }
     public int LockId { get; init; }
 }
 
@@ -17,10 +19,10 @@ public record UserForCreationDto
 {
     public string FirstName { get; set; }
     public string LastName { get; set; }
-    public short? Category { get; set; }
+    public UserCategoryInd? Category { get; set; }
     public int LockId { get; set; }
 
-    public UserForCreationDto(string firstName, string lastName, short? category, int lockId)
+    public UserForCreationDto(string firstName, string lastName, UserCategoryInd? category, int lockId)
     {
         FirstName = firstName;
         LastName = lastName;
@@ -34,10 +36,10 @@ public record UserForUpdationDto
     public long Id { get; set; }
     public string FirstName { get; set; }
     public string LastName { get; set; }
-    public short? Category { get; set; }
+    public UserCategoryInd? Category { get; set; }
     public int LockId { get; set; }
 
-    public UserForUpdationDto(long id, string firstName, string lastName, short? category, int lockId)
+    public UserForUpdationDto(long id, string firstName, string lastName, UserCategoryInd? category, int lockId)
     {
         Id = id;
         FirstName = firstName;
@@ -47,7 +49,7 @@ public record UserForUpdationDto
     }
 }
 
-public static class UserDtoMethods
+public static class UserMapper
 {
     public static UserDto ToDto(this User entity)
     {
@@ -59,6 +61,7 @@ public static class UserDtoMethods
             FullName = entity.FirstName + " " + entity.LastName,
             Category = entity.Category,
             CreatedAt = entity.CreatedAt,
+            LastModifyDate = entity.LastModifyDate,
             LockId = entity.LockId,
         };
     }

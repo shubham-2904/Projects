@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using AuctionApp.Utilities.Indicators;
 
 namespace Reference.Domain.Model;
 
@@ -11,7 +12,7 @@ public class User
 
     public string? LastName { get; set; }
 
-    public short? Category { get; set; }
+    public UserCategoryInd? Category { get; set; }
 
     public DateTime? CreatedAt { get; set; }
 
@@ -20,4 +21,6 @@ public class User
     public int LockId { get; set; }
 
     public bool IsDeleted { get; set; } = false;
+
+    public ICollection<AuctionHouse>? AuctionHouses { get; set; }
 }

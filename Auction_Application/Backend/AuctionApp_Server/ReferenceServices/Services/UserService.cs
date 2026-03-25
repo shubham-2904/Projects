@@ -39,7 +39,7 @@ sealed class UserService : IUserService
     {
         try
         {
-            var user = await _repositoryManager.User.GetUserByIdAsync(id, true);
+            User? user = await _repositoryManager.User.GetUserByIdAsync(id, true);
             if (user is null)
             {
                 _logger.LogError("User not found");
@@ -57,9 +57,29 @@ sealed class UserService : IUserService
         }
     }
 
-    public Task<Response<IEnumerable<UserDto>>> GetAllUsersAsync(bool trackChanges)
+    public async Task<Response<IEnumerable<UserDto>>> GetAllUsersAsync(bool trackChanges)
     {
-        throw new NotImplementedException();
+        try
+        {
+            IEnumerable<User>? users = await _repositoryManager.User.GetAllUserOrByConditionAsync(trackChanges, null);
+            if (users is null)
+            {
+                _logger.LogError($"User not present!");
+                return Response<IEnumerable<UserDto>>.Fail("Error occured fetching all users");
+            }
+
+            ICollection<UserDto> userDtos = [];
+            foreach (User user in users)
+            {
+                userDtos.Add(user.ToDto());
+            }
+            return Response<IEnumerable<UserDto>>.Ok(userDtos, $"Users fetch successfull");
+        }
+        catch (Exception ex)
+        {
+            _logger.LogError(ex, ex.Message);
+            return Response<IEnumerable<UserDto>>.Fail("Error occured fetching all users");
+        }
     }
 
     public async Task<Response<UserDto>> GetUserIdAsync(long id, bool trackChanges)
@@ -93,8 +113,8 @@ sealed class UserService : IUserService
     {
         try
         {
-            User user = await _repositoryManager.User.GetUserByIdAsync(userForUpdationDto.Id, true);
-            if (user == null)
+            User? user = await _repositoryManager.User.GetUserByIdAsync(userForUpdationDto.Id, true);
+            if (user is null)
             {
                 _logger.LogError("User not found");
                 return Response<UserDto>.Fail("User not found");

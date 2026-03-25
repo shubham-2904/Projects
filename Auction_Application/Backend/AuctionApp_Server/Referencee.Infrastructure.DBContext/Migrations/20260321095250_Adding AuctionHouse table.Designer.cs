@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Reference.Infrastructure.DBContext;
 
@@ -11,9 +12,11 @@ using Reference.Infrastructure.DBContext;
 namespace Reference.Infrastructure.DBContext.Migrations
 {
     [DbContext(typeof(ReferenceDbContext))]
-    partial class ReferenceDbContextModelSnapshot : ModelSnapshot
+    [Migration("20260321095250_Adding AuctionHouse table")]
+    partial class AddingAuctionHousetable
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

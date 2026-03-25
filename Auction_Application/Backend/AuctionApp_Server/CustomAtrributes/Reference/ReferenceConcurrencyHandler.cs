@@ -66,6 +66,43 @@ public static class ReferenceConcurrencyHandler
                     }
                 }
                 break;
+            case "UpdateAuctionHouse":
+                if (actionArgument is not null)
+                {
+                    var value = actionArgument["auctionHouseDto"];
+                    if (value is AuctionHouseForUpdationDto updationDto)
+                    {
+                        var entity = await context.FindAsync(tableType, updationDto.Id);
+                        if (entity is null)
+                        {
+                            string error = $"Auction house with id {updationDto.Id} not found";
+                            logger.LogError(error);
+                            throw new Exception(error);
+                        }
+                        int existingLockId = (int)context.Entry(entity).Property("LockId").CurrentValue!;
+                        if (existingLockId != updationDto.LockId)
+                        {
+                            throw new Exception($"Data is modify by another user please refresh the data");
+                        }
+                        updationDto.LockId = existingLockId + 1;
+                    }
+                }
+                break;
+            case "CreateAuctionHouse":
+                if (actionArgument is not null)
+                {
+                    var value = actionArgument["auctionHouseDto"];
+                    if (value is AuctionHouseForCreationDto creationDto)
+                    {
+                        if (creationDto is null)
+                        {
+                            logger.LogError("Auction house creation payload is null");
+                            throw new Exception("Auction house creation payload is null");
+                        }
+                        creationDto.LockId = 1;
+                    }
+                }
+                break;
         }
     }
 }

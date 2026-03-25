@@ -22,7 +22,7 @@ public class UserRepository : Repository<User>, IUserRepository
     }
 
     /// <summary>
-    /// Get all records, if we pass value for condition parameter then it will return the records according to condition
+    /// Get all records else if we pass value for condition parameter then it will return the records according to condition
     /// </summary>
     /// <param name="trackChanges"></param>
     /// <param name="condition"></param>
@@ -40,7 +40,7 @@ public class UserRepository : Repository<User>, IUserRepository
         }
     }
 
-    public async Task<User> GetUserByIdAsync(long userId, bool trackChanges)
+    public async Task<User?> GetUserByIdAsync(long userId, bool trackChanges)
     {
         return await FindByCondition(u => u.UserId.Equals(userId), trackChanges).SingleOrDefaultAsync();
     }
