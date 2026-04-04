@@ -74,9 +74,12 @@ public class CocurrencyHandlerFilter : IAsyncActionFilter
     /// <param name="value"></param>
     private async Task HandleConcurrency(string controllerName, string actionName, IDictionary<string, object?> actionArgument)
     {
-        if (controllerName.ToLower() == "reference")
+        switch(controllerName.ToLower())
         {
-            await ReferenceConcurrencyHandler.ConcurrencyHandlerAsync(actionName, actionArgument, _context, _tableType, _logger);
+            case "users":
+            case "auctionhouses":
+                await ReferenceConcurrencyHandler.ConcurrencyHandlerAsync(actionName, actionArgument, _context, _tableType, _logger);
+                break;
         }
     }
 }
