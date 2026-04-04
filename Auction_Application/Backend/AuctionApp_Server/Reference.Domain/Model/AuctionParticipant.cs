@@ -2,14 +2,16 @@
 
 namespace Reference.Domain.Model;
 
-public class AuctionHouse
+public class AuctionParticipant
 {
     [Key]
-    public long AuctionHouseId { get; set; }
+    public long AuctionParticipantId { get; set; }
 
-    public required string Name { get; set; }
+    public long AuctionEventId { get; set; }
 
-    public long OwnerUserId { get; set; }
+    public long UserId { get; set; }
+
+    public DateTime? JoinedAt { get; set; }
 
     public DateTime? CreatedAt { get; set; }
 
@@ -19,8 +21,7 @@ public class AuctionHouse
 
     public bool IsDeleted { get; set; } = false;
 
+    // Navigation Properties
     public User? User { get; set; }
-
-    public ICollection<AuctionEvent>? AuctionEvents { get; set; }
-    public ICollection<AuctionItem>? AuctionItems { get; set; }
+    public AuctionEvent? AuctionEvent { get; set; }
 }

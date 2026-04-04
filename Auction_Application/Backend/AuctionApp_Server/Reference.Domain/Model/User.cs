@@ -22,5 +22,8 @@ public class User
 
     public bool IsDeleted { get; set; } = false;
 
+    // Navigation Properties
     public ICollection<AuctionHouse>? AuctionHouses { get; set; }
+    public ICollection<AuctionEvent>? AuctionEvents { get; set; }
+    public ICollection<AuctionParticipant>? AuctionParticipants { get; set; }
 }
